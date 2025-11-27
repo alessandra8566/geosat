@@ -1,0 +1,137 @@
+import Image from "next/image"
+import PageTitle from "@/components/page-title"
+import PageSubtitle from "@/components/page-subtitle"
+
+const GeosatPremium = () => {
+  return (
+    <div>
+      <PageTitle title="*GEOSAT* *2.5* PREMIUM" subtitle="BUILT TO NAVIGATE THROUGH COMPLEX SCENARIO" />
+      <div className="relative">
+        <Image
+          src="/product_main.png"
+          alt="Main Image"
+          width={1456}
+          height={816}
+          className="w-full object-cover h-112.5 2xl:h-150"
+        />
+        <div className="grid max-w-167 w-[46%] grid-cols-2 absolute top-3/12 right-0">
+          <div className="py-5 px-8 bg-product-main-intro-r-gradient">
+            <p className="font-bold text-[40px]">36 MIN</p>
+            <p className="text-xl font-light">MAX FLIGHT TIME</p>
+          </div>
+          <div className="py-5 px-8 bg-primary/60">
+            <p className="font-bold text-[40px]">IP 54</p>
+            <p className="text-xl font-light">WATER RESISTANCE</p>
+          </div>
+          <div className="py-5 px-8 bg-primary/60">
+            <p className="font-bold text-[40px]">12 M/S</p>
+            <p className="text-xl font-light">MAX WIND RESISTANCE</p>
+          </div>
+          <div className="py-5 px-8 bg-product-main-intro-l-gradient">
+            <p className="font-bold text-[40px]">10 KM</p>
+            <p className="text-xl font-light">COMMUNICATION DISTANCE</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <PageSubtitle title="GIMBAL PERFORMANCE" />
+        <div className="flex justify-center py-13 bg-product-main-section-gradient">
+          <div className="max-w-11/12 flex gap-7.5">
+            <div className="bg-card">
+              <div className="p-4">
+                <p className="text-4xl font-bold font-roboto-condensed w-32">RGB IMAGING</p>
+                <p className="text-lg font-light text-white/80 pt-3">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
+              </div>
+              <Image
+                src="/product_image01.png"
+                alt="Gimbal RGB Imaging"
+                width={300}
+                height={379}
+                className="w-full object-cover"
+              />
+            </div>
+            <div className="bg-card">
+              <Image
+                src="/product_image02.png"
+                alt="Gimbal RGB Imaging"
+                width={300}
+                height={379}
+                className="w-full object-cover"
+              />
+              <div className="p-4">
+                <p className="text-4xl font-bold font-roboto-condensed">OBJECT DETECTION AND TRACKING</p>
+                <p className="text-lg font-light text-white/80 pt-3">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
+              </div>
+            </div>
+            <div className="bg-card">
+              <Image
+                src="/product_image03-3.png"
+                alt="Gimbal RGB Imaging"
+                width={300}
+                height={379}
+                className="w-full object-bottom aspect-5/4"
+              />
+              <div className="p-4">
+                <p className="text-4xl font-bold font-roboto-condensed w-32">THERMAL IMAGING</p>
+                <p className="text-lg font-light text-white/80 pt-3">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <PageSubtitle title="AUTONOMOUS MISSION" />
+        <div className="flex flex-col items-center py-18.75 bg-center bg-cover" style={{
+          backgroundImage: `
+          linear-gradient(rgba(var(--color-black-rgb), 0.3), rgba(var(--color-black-rgb), 0.3)),
+          url('/background/bk02.png')
+        `
+        }}>
+          <div className=" max-w-11/12 flex gap-7.5">
+            <div className="flex-1">
+              <Image
+                src="/product_image07.png"
+                alt="Gimbal RGB Imaging"
+                width={300}
+                height={379}
+                className="w-full object-cover"
+              />
+              <div className="p-5 px-1">
+                <p className="text-4xl font-bold font-roboto-condensed">GPS DENIED FLYING</p>
+                <p className="text-lg font-light text-white/80 pt-3">
+                  In some scenarios, for example bridge inspection or indoor inspection, where there&apos;s no GPS signal, drone can still be operable manually or autonomously. Giving pilots the ability to capture information at ease.
+                </p>
+              </div>
+            </div>
+            <div className="flex-1">
+              <Image
+                src="/product_image08.jpg"
+                alt="Gimbal RGB Imaging"
+                width={300}
+                height={379}
+                className="w-full object-cover"
+              />
+              <div className="p-5 px-1">
+                <p className="text-4xl font-bold font-roboto-condensed">OBSTACLE AVOIDANCE</p>
+                <p className="text-lg font-light text-white/80 pt-3">
+                  Equipped with sensors and cutting edge algorithms, drone can seamlessly complete the mission by taking a small detour when encounter obstacles without compromisiong autonomous mission. This allows Geosat 2.5 Premium to conduct mission in various complex environment such as indoor warehouse, power plant etc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <PageSubtitle title="PROPRIETARY SOFTWARE FEATURE" />
+        <div className="flex flex-col items-center py-18.75 bg-center bg-cover h-200" style={{
+          backgroundImage: `url('/background/bk01.png')`
+        }}>
+          <div className=" max-w-11/12 flex gap-7.5">
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default GeosatPremium
