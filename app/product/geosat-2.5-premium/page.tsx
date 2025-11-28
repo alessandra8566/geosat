@@ -1,6 +1,7 @@
 import Image from "next/image"
 import PageTitle from "@/components/page-title"
 import PageSubtitle from "@/components/page-subtitle"
+import VerticalCarousel from "./vertical-carousel"
 
 const GeosatPremium = () => {
   return (
@@ -36,7 +37,7 @@ const GeosatPremium = () => {
       <div>
         <PageSubtitle title="GIMBAL PERFORMANCE" />
         <div className="flex justify-center py-13 bg-product-main-section-gradient">
-          <div className="max-w-11/12 flex gap-7.5">
+          <div className="max-w-5/6 flex gap-7.5">
             <div className="bg-card">
               <div className="p-4">
                 <p className="text-4xl font-bold font-roboto-condensed w-32">RGB IMAGING</p>
@@ -87,7 +88,7 @@ const GeosatPremium = () => {
           url('/background/bk02.png')
         `
         }}>
-          <div className=" max-w-11/12 flex gap-7.5">
+          <div className=" max-w-5/6 flex gap-7.5">
             <div className="flex-1">
               <Image
                 src="/product_image07.png"
@@ -123,10 +124,11 @@ const GeosatPremium = () => {
       </div>
       <div>
         <PageSubtitle title="PROPRIETARY SOFTWARE FEATURE" />
-        <div className="flex flex-col items-center py-18.75 bg-center bg-cover h-200" style={{
+        <div className="flex flex-col items-center py-18.75 bg-center bg-cover" style={{
           backgroundImage: `url('/background/bk01.png')`
         }}>
-          <div className=" max-w-11/12 flex gap-7.5">
+          <div className="w-5/6 flex gap-7.5">
+            <VerticalCarousel />
           </div>
         </div>
       </div>
