@@ -16,11 +16,16 @@ const navigationMenuTriggerStyle = cva(
 
 const Footer = () => {
   return (
-    <div className="w-full flex flex-col justify-between h-75 bg-footer-gradient px-16 pb-12 pt-16 relative">
-      <div
-        className="absolute inset-0 opacity-40 w-full h-full bg-cover"
-        style={{ backgroundImage: "url('/background/Header_line_H300.png')" }}
-      />
+    <div
+      className="w-full flex flex-col justify-between h-75 px-16 pb-12 pt-16 relative bg-cover!"
+      style={{
+        background: `
+              linear-gradient(0deg, rgba(var(--color-red-rgb), 0.2) 0%, rgba(var(--color-black-rgb), 0.2) 95.33%),
+              linear-gradient(rgba(var(--color-black-rgb), 0.6), rgba(var(--color-black-rgb), 0.6)),
+              url('/background/Header_line_H300.png'),
+              linear-gradient(0deg, var(--color-black), var(--color-black))
+            `,
+      }}>
       <Link href="/" className="text-xl font-bold tracking-tight text-primary">
         <Image
           className="invert"

@@ -1,31 +1,48 @@
-  @utility font-roboto-condensed {
-    font-family: var(--font-roboto-condensed), sans-serif;
-    font-optical-sizing: auto;
-    font-variation-settings: "wdth" 75;
-  }
+@utility font-roboto-condensed {
+  font-family: var(--font-roboto-condensed), sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 75;
+}
 
-  @utility border-gradient-line {
-    border-bottom: 1px solid;
-    border-image-source: var(--gradient-border);
-    border-image-slice: 1;
-  }
+@utility border-gradient-line {
+  border-bottom: 1px solid;
+  border-image-source: var(--gradient-border);
+  border-image-slice: 1;
+}
 
-  @utility border-gradient-card {
-    border-width: 1px 1px 0px 0px;
-    border-image-source: var(--gradient-border-card);
-    border-style: solid;
-    border-image-slice: 1;
-  }
+@utility border-gradient-card {
+  border-width: 1px 1px 0px 0px;
+  border-image-source: var(--gradient-border-card);
+  border-style: solid;
+  border-image-slice: 1;
+}
 
-  @utility border-gradient-card-image {
-    border-width: 0px 1px 1px 0px;
-    border-image-source: var(--gradient-border-card-image);
-    border-style: solid;
-    border-image-slice: 1;
-  }
+@utility border-gradient-card-image {
+  border-width: 0px 1px 1px 0px;
+  border-image-source: var(--gradient-border-card-image);
+  border-style: solid;
+  border-image-slice: 1;
+}
 
-  @utility border-gradient-subtitle {
-    border-bottom: 1px solid;
-    border-image-source: var(--gradient-border-subtitle);
-    border-image-slice: 1;
-  }
+@utility border-gradient-subtitle {
+  border-bottom: 1px solid;
+  border-image-source: var(--gradient-border-subtitle);
+  border-image-slice: 1;
+}
+
+@utility border-gradient-bottom-left {
+  border: 1px solid;
+  border-image-source: var(--gradient-border-bottom-left);
+  border-image-slice: 1;
+}
+
+@utility border-gradient-round-bottom-right {
+  background-image: var(--gradient-border-round-bottom-right);
+  border-radius: 12px;
+}
+@utility border-gradient-round-bottom-left {
+  background-image: var(--gradient-border-round-bottom-left);
+  border-radius: 12px;
+}
+
+

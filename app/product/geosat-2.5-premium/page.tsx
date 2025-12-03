@@ -1,9 +1,32 @@
+/* eslint-disable @next/next/no-img-element */
+"use client"
+
 import Image from "next/image"
 import PageTitle from "@/components/page-title"
 import PageSubtitle from "@/components/page-subtitle"
 import VerticalCarousel from "./vertical-carousel"
+import { useState } from "react"
+
+const products = [
+  {
+    title: "GIMBAL",
+    url: "/product_image09-1.png",
+    hoverUrl: "/product_image09-2.png"
+  },
+  {
+    title: "SPEAKER",
+    url: "/product_image10-1.png",
+    hoverUrl: "/product_image10-2.png"
+  },
+  {
+    title: "SPOTLIGHT",
+    url: "/product_image11-1.png",
+    hoverUrl: "/product_image11-2.png"
+  }
+]
 
 const GeosatPremium = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number>();
   return (
     <div>
       <PageTitle title="*GEOSAT* *2.5* PREMIUM" subtitle="BUILT TO NAVIGATE THROUGH COMPLEX SCENARIO" />
@@ -36,7 +59,12 @@ const GeosatPremium = () => {
       </div>
       <div>
         <PageSubtitle title="GIMBAL PERFORMANCE" />
-        <div className="flex justify-center py-13 bg-product-main-section-gradient">
+        <div
+          className="flex justify-center py-13"
+          style={{
+            background: "linear-gradient(180deg, var(--color-black) 65.41%, rgba(var(--color-primary-rgb), 0.5) 100%)"
+          }}
+        >
           <div className="max-w-5/6 flex gap-7.5">
             <div className="bg-card">
               <div className="p-4">
@@ -88,7 +116,7 @@ const GeosatPremium = () => {
           url('/background/bk02.png')
         `
         }}>
-          <div className=" max-w-5/6 flex gap-7.5">
+          <div className="max-w-5/6 flex gap-7.5">
             <div className="flex-1">
               <Image
                 src="/product_image07.png"
@@ -124,11 +152,54 @@ const GeosatPremium = () => {
       </div>
       <div>
         <PageSubtitle title="PROPRIETARY SOFTWARE FEATURE" />
-        <div className="flex flex-col items-center py-18.75 bg-center bg-cover" style={{
-          backgroundImage: `url('/background/bk01.png')`
-        }}>
-          <div className="w-5/6 flex gap-7.5">
+        <div
+          className="flex flex-col items-center py-18.75 bg-center bg-cover"
+          style={{
+            backgroundImage: `url('/background/bk01.png')`
+          }}
+        >
+          <div className="w-11/12 xl:w-5/6 flex gap-7.5">
             <VerticalCarousel />
+          </div>
+        </div>
+      </div>
+      <div>
+        <PageSubtitle title="ACCESSORIES" />
+        <div
+          className="flex justify-center bg-center bg-cover "
+          style={{
+            background: `
+              linear-gradient(125.52deg, rgba(10, 10, 10, 0.7) 56.17%, rgb(54, 0, 0, 1) 89.85%),
+              linear-gradient(rgba(var(--color-black-rgb), 0.1), rgba(var(--color-black-rgb), 0.1)),
+              url('/background/bk03.png')
+            `
+          }}
+        >
+          <div className="w-5/6 flex justify-around py-20 gap-17.5">
+            {
+              products.map((product, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(undefined)}
+                >
+                  <div className="bg-black">
+                    <div className="border-gradient-bottom-left">
+                      <img
+                        src={hoveredIndex === index ? product.hoverUrl : product.url}
+                        alt={product.title}
+                        width={350}
+                        height={350}
+                        className="aspect-square"
+                      />
+                    </div>
+                    <div className="px-5 py-2">
+                      <p className="text-3xl font-bold font-roboto">{product.title}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>

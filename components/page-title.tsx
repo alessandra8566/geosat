@@ -21,10 +21,8 @@ const PageTitle = (props: PageTitleProps) => {
   return (
     <div className="bg-page-title-gradient font-roboto-condensed">
       <div 
-        className={cn("px-4 text-6xl tracking-tighter xl:text-8xl text-white bg-center bg-cover border-gradient-line", className)}
-        style={{
-          backgroundImage: "url('/background/Header_line_H200.png')",
-        }}
+        className={cn("  px-4 text-6xl tracking-tighter xl:text-8xl text-white bg-center bg-cover border-gradient-line", className)}
+        style={{ backgroundImage: "url('/background/Header_line_H200.png')"}}
       >
         {words.map((word, index) => {
           const isBold = word.startsWith('*') && word.endsWith('*');

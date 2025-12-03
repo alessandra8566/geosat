@@ -58,12 +58,12 @@ const Navbar = () => {
           />
         </Link>
         <div className="grow flex items-center justify-end gap-4">
-          <ul className="flex">
+          <ul className="flex"> 
             <li>
               <Link href="/" className={cn(navigationMenuTriggerStyle())}>HOME</Link>
             </li>
             <li>
-              <DropdownMenu.Root onOpenChange={setIsProductMenuOpen}>
+              <DropdownMenu.Root onOpenChange={setIsProductMenuOpen} open={isProductMenuOpen}>
                 <DropdownMenu.Trigger asChild>
                   <button className={cn(navigationMenuTriggerStyle(), "focus:outline-none")}>
                     PRODUCT
@@ -95,10 +95,10 @@ const Navbar = () => {
               </DropdownMenu.Root>
             </li>
             <li>
-              <Link href="/" className={cn(navigationMenuTriggerStyle())}>SOLUTIONS</Link>
+              <Link href="/solutions" className={cn(navigationMenuTriggerStyle())}>SOLUTIONS</Link>
             </li>
             <li>
-              <Link href="/" className={cn(navigationMenuTriggerStyle())}>ABOUT</Link>
+              <Link href="/about" className={cn(navigationMenuTriggerStyle())}>ABOUT</Link>
             </li>
           </ul>
           <Button className="py-3 px-4 text-white bg-primary"  >

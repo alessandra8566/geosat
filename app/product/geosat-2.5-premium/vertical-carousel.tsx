@@ -85,38 +85,33 @@ const VerticalCarousel = () => {
   });
   return (
     <div className="w-full">
-      <motion.div className="relative flex h-100 justify-center gap-7.5 overflow-hidden rounded-md">
-        <div className={cn("sticky top-0 hidden flex-1 overflow-hidden bg-white lg:block")}>
+      <motion.div className="relative flex h-100 justify-center gap-7.5 rounded-md">
+        <div className={cn("sticky top-0 hidden flex-1 bg-white lg:block")}>
           {content[activeCard].content ?? null}
         </div>
-        <div className="div relative flex-1 flex items-start px-4 h-full">
-          <div className="relative w-full max-w-2xl h-full snap-y snap-mandatory overflow-y-scroll" ref={ref}>
+        <div className="div relative flex-1 flex items-center justify-center px-4 h-full">
+          <div className="grow relative w-full max-w-2xl h-4/5 snap-y snap-mandatory overflow-y-scroll carousel-scrollbar" ref={ref}>
             {content.map((item, index) => (
               <div key={item.title + index} className="h-full w-full flex flex-col justify-center items-start snap-center snap-always">
                 <motion.h2
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.3 }}
                   className="text-2xl font-bold text-slate-100"
                 >
                   {item.title}
                 </motion.h2>
                 <motion.p
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
-                  className="text-kg mt-10 max-w-sm text-slate-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                  className="text-lg mt-10 max-w-sm text-slate-300"
                 >
                   {item.description}
                 </motion.p>
               </div>
             ))}
+          </div>
+          <div className="relative border-r border-r-[#d9d9d9cc] h-4/5 -translate-x-0.5">
+            <span className="absolute -bottom-8 -right-1.5">{activeCard + 1}</span>
           </div>
         </div>
 
