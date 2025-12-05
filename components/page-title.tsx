@@ -20,25 +20,27 @@ const PageTitle = (props: PageTitleProps) => {
   const words = title.split(" ");
   return (
     <div className="bg-page-title-gradient font-roboto-condensed">
-      <div 
-        className={cn("  px-4 text-6xl tracking-tighter xl:text-8xl text-white bg-center bg-cover border-gradient-line", className)}
-        style={{ backgroundImage: "url('/background/Header_line_H200.png')"}}
+      <div
+        className={cn("px-5 text-white bg-center bg-cover border-gradient-line overflow-hidden", className)}
+        style={{ backgroundImage: "url('/background/Header_line_H200.png')" }}
       >
         {words.map((word, index) => {
           const isBold = word.startsWith('*') && word.endsWith('*');
           const text = isBold ? word.slice(1, -1) : word;
           return (
             <Fragment key={index}>
-              <span className={isBold ? "font-black" : "font-light"}>{text}</span>
+              <span className={cn("text-6xl xl:text-8xl tracking-tighter leading-1.05em", {
+                [isBold ? "font-black" : "font-light"]: true
+              })}>{text}</span>
               {index < words.length - 1 && ' '}
             </Fragment>
           );
         })}
-        { subtitle && (
-          <div className="text-[42px] font-light tracking-normal">
+        {subtitle && (
+          <div className="text-[42px] font-light tracking-normal leading-1em">
             {subtitle}
           </div>
-        ) }
+        )}
       </div>
     </div>
   )

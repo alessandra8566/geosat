@@ -11,22 +11,22 @@ const products = [
   {
     title: "GEOSAT",
     description: "Daily open air operation partner",
-    url: "/index_bt05-1.jpg",
+    url: "/index_bt04-1.png",
     hoverUrl: "/index_bt04-2.png",
     link: "/products/geosat"
   },
   {
     title: "GEOSAT 2.5 PREMIUM",
     description: "Built to navigate through complex scenario",
-    url: "/index_bt05-1.jpg",
-    hoverUrl: "/index_bt04-2.png",
+    url: "/index_bt05-1.png",
+    hoverUrl: "/index_bt05-2.png",
     link: "/products/geosat-2-5-premium"
   },
   {
     title: "GEOSAT 10 MR",
     description: "Multiple payload and infinity possibility",
-    url: "/index_bt05-1.jpg",
-    hoverUrl: "/index_bt04-2.png",
+    url: "/index_bt06-1.png",
+    hoverUrl: "/index_bt06-2.png",
     link: "/products/geosat-10-mr"
   }
 ]
@@ -38,7 +38,7 @@ export default function Home() {
       <PageTitle title="DISCOVERY YOUR *DRONE*" />
       <div className="flex w-full flex-wrap bg-white">
         <div
-          className="w-1/3 bg-contain bg-no-repeat bg-right"
+          className="max-w-1/3 w-106.5 bg-contain bg-no-repeat bg-right"
           style={{ backgroundImage: "url('/index_bt01-2.png')" }}
         >
           <div className="flex flex-col justify-between p-5 pb-10 bg-card text-white/80 hover:bg-black/30 hover:text-black h-full">
@@ -47,7 +47,7 @@ export default function Home() {
           </div>
         </div>
         <div className="grow w-2/3 bg-background">
-          <Image
+          <img
             src="/index_main_01.png"
             alt="Main Image"
             width={1014}
@@ -55,13 +55,14 @@ export default function Home() {
             className="w-full object-cover"
           />
         </div>
-        <div className="w-1/3 max-h-75 2xl:max-h-96 overflow-hidden flex justify-center border-b border-black">
+        <div className="max-w-1/3 w-106.5 max-h-75 2xl:max-h-96 overflow-hidden flex justify-center border-b border-black">
           <Image
-            src="/index_main02.jpg"
+            src="/index_main02-2.png"
             alt="Side Image"
             width={3840}
             height={5760}
-            className="w-full rotate-y-180 object-cover object-[0%_58%]"
+            quality={100}
+            className="w-full object-cover object-[0%_58%]"
           />
         </div>
         <div className="grow w-2/3 flex border-b border-black">
@@ -98,25 +99,18 @@ export default function Home() {
           </div>
         </div>
         <div className="w-2/3">
-          <Image
+          <img
             src="/index03.png"
             alt="Main Image"
             width={1014}
             height={495}
-            className="w-full h-87 lg:h-125 2xl:h-163 object-cover"
+            className="w-full h-125 object-cover"
           />
         </div>
       </div>
       <PageTitle title="*EXCELLENT* PRODUCTS" className="py-2" />
-      <Image
-        src="/index04.png"
-        alt="Main Image"
-        width={1014}
-        height={495}
-        className="w-full"
-      />
       <div className="flex justify-center">
-        <div className="max-w-11/12 flex gap-5 mb-20">
+        <div className="max-w-11/12 flex gap-5 mt-22.5 mb-20">
           {
             products.map((product, index) => (
               <div

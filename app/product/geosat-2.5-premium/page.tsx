@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import Image from "next/image"
@@ -31,28 +30,28 @@ const GeosatPremium = () => {
     <div>
       <PageTitle title="*GEOSAT* *2.5* PREMIUM" subtitle="BUILT TO NAVIGATE THROUGH COMPLEX SCENARIO" />
       <div className="relative">
-        <Image
-          src="/product_main.png"
+        <img
+          src="/product01_main.png"
           alt="Main Image"
           width={1456}
           height={816}
-          className="w-full object-cover h-112.5 2xl:h-150"
+          className="w-full object-cover h-142"
         />
-        <div className="grid max-w-167 w-[46%] grid-cols-2 absolute top-3/12 right-0">
+        <div className="grid max-w-167 w-[46%] grid-cols-2 absolute top-3/10 right-0">
           <div className="py-5 px-8 bg-product-main-intro-r-gradient">
-            <p className="font-bold text-[40px]">36 MIN</p>
+            <p className="font-bold text-[40px] leading-1em">36 MIN</p>
             <p className="text-xl font-light">MAX FLIGHT TIME</p>
           </div>
           <div className="py-5 px-8 bg-primary/60">
-            <p className="font-bold text-[40px]">IP 54</p>
+            <p className="font-bold text-[40px] leading-1em">IP 54</p>
             <p className="text-xl font-light">WATER RESISTANCE</p>
           </div>
           <div className="py-5 px-8 bg-primary/60">
-            <p className="font-bold text-[40px]">12 M/S</p>
+            <p className="font-bold text-[40px] leading-1em">12 M/S</p>
             <p className="text-xl font-light">MAX WIND RESISTANCE</p>
           </div>
           <div className="py-5 px-8 bg-product-main-intro-l-gradient">
-            <p className="font-bold text-[40px]">10 KM</p>
+            <p className="font-bold text-[40px] leading-1em">10 KM</p>
             <p className="text-xl font-light">COMMUNICATION DISTANCE</p>
           </div>
         </div>
@@ -62,14 +61,16 @@ const GeosatPremium = () => {
         <div
           className="flex justify-center py-13"
           style={{
-            background: "linear-gradient(180deg, var(--color-black) 65.41%, rgba(var(--color-primary-rgb), 0.5) 100%)"
+            background: `
+              url('/background/bk07.png') no-repeat center center / cover
+            `
           }}
         >
           <div className="max-w-5/6 flex gap-7.5">
             <div className="bg-card">
               <div className="p-4">
-                <p className="text-4xl font-bold font-roboto-condensed w-32">RGB IMAGING</p>
-                <p className="text-lg font-light text-white/80 pt-3">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
+                <p className="text-4xl font-bold font-roboto-condensed w-32 leading-0.9em">RGB IMAGING</p>
+                <p className="text-lg font-light text-white/80 pt-3 leading-1.3em">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
               </div>
               <Image
                 src="/product_image01.png"
@@ -81,28 +82,28 @@ const GeosatPremium = () => {
             </div>
             <div className="bg-card">
               <Image
-                src="/product_image02.png"
+                src="/product_image02-2.png"
                 alt="Gimbal RGB Imaging"
                 width={300}
                 height={379}
                 className="w-full object-cover"
               />
               <div className="p-4">
-                <p className="text-4xl font-bold font-roboto-condensed">OBJECT DETECTION AND TRACKING</p>
-                <p className="text-lg font-light text-white/80 pt-3">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
+                <p className="text-4xl font-bold font-roboto-condensed leading-0.9em">OBJECT DETECTION AND TRACKING</p>
+                <p className="text-lg font-light text-white/80 pt-3 leading-1.3em">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
               </div>
             </div>
             <div className="bg-card">
               <Image
-                src="/product_image03-3.png"
+                src="/product_image03.png"
                 alt="Gimbal RGB Imaging"
                 width={300}
                 height={379}
-                className="w-full object-bottom aspect-5/4"
+                className="w-full object-cover" 
               />
               <div className="p-4">
-                <p className="text-4xl font-bold font-roboto-condensed w-32">THERMAL IMAGING</p>
-                <p className="text-lg font-light text-white/80 pt-3">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
+                <p className="text-4xl font-bold font-roboto-condensed w-32 leading-0.9em">THERMAL IMAGING</p>
+                <p className="text-lg font-light text-white/80 pt-3 leading-1.3em">Gimbal camera has the ability to identify a person from 1km away through 40x zoom. High resolution images gives you the quick assessment of front line and enables you to make the right decision instantly.</p>
               </div>
             </div>
           </div>
@@ -112,6 +113,7 @@ const GeosatPremium = () => {
         <PageSubtitle title="AUTONOMOUS MISSION" />
         <div className="flex flex-col items-center py-18.75 bg-center bg-cover" style={{
           backgroundImage: `
+          linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(98, 7, 7, 0.2) 100%),
           linear-gradient(rgba(var(--color-black-rgb), 0.3), rgba(var(--color-black-rgb), 0.3)),
           url('/background/bk02.png')
         `
@@ -126,8 +128,8 @@ const GeosatPremium = () => {
                 className="w-full object-cover"
               />
               <div className="p-5 px-1">
-                <p className="text-4xl font-bold font-roboto-condensed">GPS DENIED FLYING</p>
-                <p className="text-lg font-light text-white/80 pt-3">
+                <p className="text-4xl font-bold leading-1em">GPS DENIED FLYING</p>
+                <p className="text-xl font-light text-white/80 pt-3 leading-1.1em">
                   In some scenarios, for example bridge inspection or indoor inspection, where there&apos;s no GPS signal, drone can still be operable manually or autonomously. Giving pilots the ability to capture information at ease.
                 </p>
               </div>
@@ -141,8 +143,8 @@ const GeosatPremium = () => {
                 className="w-full object-cover"
               />
               <div className="p-5 px-1">
-                <p className="text-4xl font-bold font-roboto-condensed">OBSTACLE AVOIDANCE</p>
-                <p className="text-lg font-light text-white/80 pt-3">
+                <p className="text-4xl font-bold leading-1em">OBSTACLE AVOIDANCE</p>
+                <p className="text-xl font-light text-white/80 pt-3 leading-1.1em">
                   Equipped with sensors and cutting edge algorithms, drone can seamlessly complete the mission by taking a small detour when encounter obstacles without compromisiong autonomous mission. This allows Geosat 2.5 Premium to conduct mission in various complex environment such as indoor warehouse, power plant etc.
                 </p>
               </div>

@@ -21,39 +21,42 @@ const content: {
             src="/product_image04.png"
             width={300}
             height={300}
-            className="h-full w-full object-cover"
+            quality={100}
+            className="w-full object-cover border-gradient-bottom-left border-t-0! border-r-0!"
             alt="ATAK"
           />
         </div>
       ),
     },
     {
-      title: "Real time changes",
+      title: "Pre-flight check",
       description:
-        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+        "A thorough check before flying is an guarantee for success mission. The Pre-Flight check gives the pilot a quick review on the whole status of the drone, including battery status, motor healthiness, GPS quality etc.",
       content: (
         <div className="flex h-full w-full items-center justify-center text-white">
           <Image
-            src="/product_image08.jpg"
+            src="/product_image05.png"
             width={300}
             height={300}
-            className="h-full w-full object-cover"
+            quality={100}
+            className="w-full object-cover border-gradient-bottom-left border-t-0! border-r-0!"
             alt="linear board demo"
           />
         </div>
       ),
     },
     {
-      title: "Version control",
+      title: "Restricted fly zone",
       description:
-        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        "When reaching the boundary of the self-defined or official defined fly zone, our software offers immediate warning to the pilot and swift control of the drone to avoid any possible danger. ",
       content: (
         <div className="flex h-full w-full items-center justify-center text-white">
           <Image
-            src="/product_image07.png"
+            src="/product_image06.png"
             width={300}
             height={300}
-            className="h-full w-full object-cover"
+            quality={100}
+            className="w-full object-cover border-gradient-bottom-left border-t-0! border-r-0!"
             alt="linear board demo"
           />
         </div>
@@ -86,10 +89,10 @@ const VerticalCarousel = () => {
   return (
     <div className="w-full">
       <motion.div className="relative flex h-100 justify-center gap-7.5 rounded-md">
-        <div className={cn("sticky top-0 hidden flex-1 bg-white lg:block")}>
+        <div className={cn("sticky top-0 hidden flex-5 lg:block")}>
           {content[activeCard].content ?? null}
         </div>
-        <div className="div relative flex-1 flex items-center justify-center px-4 h-full">
+        <div className="div relative flex-4 flex items-center justify-center px-4 h-full">
           <div className="grow relative w-full max-w-2xl h-4/5 snap-y snap-mandatory overflow-y-scroll carousel-scrollbar" ref={ref}>
             {content.map((item, index) => (
               <div key={item.title + index} className="h-full w-full flex flex-col justify-center items-start snap-center snap-always">

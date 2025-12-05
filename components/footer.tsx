@@ -20,24 +20,29 @@ const Footer = () => {
       className="w-full flex flex-col justify-between h-75 px-16 pb-12 pt-16 relative bg-cover!"
       style={{
         background: `
-              linear-gradient(0deg, rgba(var(--color-red-rgb), 0.2) 0%, rgba(var(--color-black-rgb), 0.2) 95.33%),
-              linear-gradient(rgba(var(--color-black-rgb), 0.6), rgba(var(--color-black-rgb), 0.6)),
-              url('/background/Header_line_H300.png'),
-              linear-gradient(0deg, var(--color-black), var(--color-black))
-            `,
+          linear-gradient(0deg, rgba(var(--color-red-rgb), 0.2) 0%, rgba(var(--color-black-rgb), 0.2) 95.33%),
+          linear-gradient(rgba(var(--color-black-rgb), 0.6), rgba(var(--color-black-rgb), 0.6)),
+          url('/background/Header_line_H300.png'),
+          linear-gradient(0deg, var(--color-black), var(--color-black))
+        `,
       }}>
       <Link href="/" className="text-xl font-bold tracking-tight text-primary">
         <Image
-          className="invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/icons/logo_name.svg"
+          alt="logo"
+          width={120}
+          height={46}
         />
       </Link>
       <div className="flex justify-between items-end">
-        <div className="text-white text-sm">
+        <div className="text-white text-sm tracking-1">
+          <Image
+            src="/icons/youtube.svg"
+            alt="logo"
+            width={32}
+            height={23}
+            className="mb-[15px]"
+          />
           <p>Email: Geosat@geosat.com</p>
           <p>Phone: (+886) 6616-9999</p>
           <p>Copyright ©2025 GEOSAT CORPORATION. All Rights Reserved.</p>

@@ -46,19 +46,17 @@ const Navbar = () => {
           onClick={() => setIsProductMenuOpen(false)}
         />
       )}
-      <header className="h-20 px-10 py-2 flex items-center justify-between bg-black sticky top-0 z-50">
-        <Link href="/" className="text-xl font-bold tracking-tight text-primary">
+      <header className="h-20 px-14 py-2 flex items-center justify-between bg-black sticky top-0 z-50 border-gradient-header-bottom">
+        <Link href="/">
           <Image
-            className="invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={100}
-            height={20}
-            priority
+            src="/icons/logo.svg"
+            alt="logo"
+            width={95}
+            height={29}
           />
         </Link>
         <div className="grow flex items-center justify-end gap-4">
-          <ul className="flex"> 
+          <ul className="flex">
             <li>
               <Link href="/" className={cn(navigationMenuTriggerStyle())}>HOME</Link>
             </li>
@@ -80,7 +78,7 @@ const Navbar = () => {
                           key={index}
                           className="
                             relative flex items-center 
-                            hover:font-semibold focus:outline-none hover:text-white hover:bg-[#2b0202cc]
+                            hover:font-semibold focus:outline-none hover:text-white hover:bg-hover-btn
                             border border-transparent
                             hover:border hover:border-gradient-card
                             cursor-pointer
@@ -101,9 +99,11 @@ const Navbar = () => {
               <Link href="/about" className={cn(navigationMenuTriggerStyle())}>ABOUT</Link>
             </li>
           </ul>
-          <Button className="py-3 px-4 text-white bg-primary"  >
-            BOOK DEMO
-          </Button>
+          <Link href="/book-demo">
+            <Button className="py-3 px-4 text-white bg-primary cursor-pointer tracking-1">
+              BOOK DEMO
+            </Button>
+          </Link>
         </div>
       </header>
     </>
