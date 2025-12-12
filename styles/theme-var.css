@@ -8,6 +8,8 @@
 
   /* custom letter spacing */
   --tracking-1: 0.01em;
+  --tracking-2: 0.02em;
+  --tracking-3: 0.03em;
 
   /* custom line height */
   --spacing-0.9em: 0.9em;
@@ -24,15 +26,15 @@
   --color-black-rgb: 0, 0, 0;
   --color-primary-rgb: 93, 0, 0;
 
-  --color-hover-btn: rgba(43,2,2,0.8);
+  --color-hover-btn: rgba(43, 2, 2, 0.8);
   --color-gradient-white-gray: linear-gradient(90deg, var(--color-white) 0%, #999999 100%);
 
   /* custom background image */
   --background-image-page-title-gradient: linear-gradient(90deg, var(--primary) 0%, #4C4C4C 20%, var(--color-black) 99.52%);
   --background-image-page-subtitle-gradient: linear-gradient(90deg, var(--color-black) 0%, #222222 48.08%);
   --background-image-dropdown-menu-gradient: linear-gradient(180deg, var(--primary) 0%, var(--color-black) 100%);
-  --background-image-product-main-intro-r-gradient: linear-gradient(270deg, rgba(var(--color-primary-rgb), 0.6) 6.65%, rgba(var(--color-black-rgb), 0.6) 100%);
-  --background-image-product-main-intro-l-gradient: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.6) 12.97%, rgba(var(--color-black-rgb), 0.6) 100%);
+  --background-image-product-main-intro-r-gradient: linear-gradient(270deg, rgba(var(--color-primary-rgb), 0.75) 6.65%, rgba(var(--color-black-rgb), 0.75) 100%);
+  --background-image-product-main-intro-l-gradient: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.75) 12.97%, rgba(var(--color-black-rgb), 0.75) 100%);
   --background-image-main-text-gradient: linear-gradient(90deg, rgba(var(--color-black-rgb), 0.5) 0%, rgba(46, 0, 0, 0.75) 37.02%, #920000 100%);
 
   --background-image-home-index-03: url('/index_bt03-2.png');
@@ -47,6 +49,9 @@
   --gradient-border-round-bottom-right: linear-gradient(139.64deg, var(--color-black) 70.13%, rgb(var(--color-red-rgb)) 91.71%, var(--color-primary) 101.89%, var(--color-black) 111.66%);
   --gradient-border-round-bottom-left: linear-gradient(218.19deg, var(--color-black) 74.14%, rgb(var(--color-red-rgb)) 92.88%, var(--color-primary) 101.72%, var(--color-black) 110.21%);
   --gradient-border-btn-top: linear-gradient(59.57deg, var(--color-black) 13.21%, var(--color-red) 52%, var(--color-black) 90.06%);
+  --gradient-border-dropdown-item-hover: linear-gradient(90deg, var(--color-black) 0%, #E61717 50%, var(--color-black) 100%);
+
+;
 
   --background-color-card: var(--card);
 }

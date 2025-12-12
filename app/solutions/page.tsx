@@ -17,13 +17,13 @@ const Solutions = () => {
       <PageTitle title="*SOLUTIONS*" />
       <div className="relative">
         <Image
-          src="/solution_image02.png"
+          src="/solution_main01.png"
           alt="Main Image"
           width={1440}
           height={705}
-          className="w-full object-cover h-152"
+          className="w-full object-cover object-bottom h-152"
         />
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 tracking-tight text-white text-[55px] w-225 leading-15 flex flex-col items-center">
+        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 tracking-tight text-white text-[55px] w-225 leading-15 flex flex-col items-center">
           <div className="text-center flex items-center justify-center w-full">
             <span className="bg-main-text-gradient font-medium px-2"> REACH THE UNREACHABLE</span>
             <span className="font-light text-[40px] px-2"> & </span>
@@ -39,7 +39,7 @@ const Solutions = () => {
         }}
       >
         <div data-aos="fade-right" data-aos-duration="1000">
-          <PageSubtitle title="DRONE AS FIRST RESPONDER (DFR)" border={false} />
+          <PageSubtitle title="DRONE AS FIRST RESPONDER (DFR)" border={false} className="px-5" />
           <div className="border-gradient-round-bottom-right p-px mt-2.5 mx-5">
             <div className="p-7.5 flex items-center gap-5 bg-[#1F1D1D] rounded-[12px]">
               <Image

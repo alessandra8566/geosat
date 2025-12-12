@@ -46,7 +46,7 @@ const About = () => {
           alt="Main Image"
           width={1440}
           height={705}
-          className="w-full h-152 object-cover object-bottom"
+          className="w-full h-152 object-cover object-[10%]"
         />
         <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 tracking-tight text-white text-[55px] w-225 leading-15 flex flex-col items-center">
           <div className="font-light text-left w-full uppercase">WE SOAR IN THE SKY</div>

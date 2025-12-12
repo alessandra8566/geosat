@@ -10,23 +10,21 @@ import { cn } from "@/utils/shadcn"
 import { cva } from "class-variance-authority"
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 text-base py-2 font-bold cursor-pointer text-xl text-white hover:underline focus:underline"
+  "group inline-flex h-9 w-max items-center justify-center rounded-md p-2 font-bold cursor-pointer text-xl leading-1.3em text-white hover:underline focus:underline"
 )
+
 
 
 const Footer = () => {
   return (
     <div
-      className="w-full flex flex-col justify-between h-75 px-16 pb-12 pt-16 relative bg-cover!"
+      className="w-full flex flex-col justify-between h-75 px-15 pb-12 pt-[77px] relative"
       style={{
         background: `
-          linear-gradient(0deg, rgba(var(--color-red-rgb), 0.2) 0%, rgba(var(--color-black-rgb), 0.2) 95.33%),
-          linear-gradient(rgba(var(--color-black-rgb), 0.6), rgba(var(--color-black-rgb), 0.6)),
-          url('/background/Header_line_H300.png'),
-          linear-gradient(0deg, var(--color-black), var(--color-black))
+          url('/background/footer_bk.png') center center / cover
         `,
       }}>
-      <Link href="/" className="text-xl font-bold tracking-tight text-primary">
+      <Link href="/" className="text-xl font-bold tracking-tight text-primary cursor-pointer">
         <Image
           src="/icons/logo_name.svg"
           alt="logo"
@@ -43,9 +41,9 @@ const Footer = () => {
             height={23}
             className="mb-[15px]"
           />
-          <p>Email: Geosat@geosat.com</p>
-          <p>Phone: (+886) 6616-9999</p>
-          <p>Copyright ©2025 GEOSAT CORPORATION. All Rights Reserved.</p>
+          <p className="leading-1.3em">Email: Geosat@geosat.com</p>
+          <p className="leading-1.3em">Phone: (+886) 6616-9999</p>
+          <p className="leading-1.3em">Copyright ©2025 GEOSAT CORPORATION. All Rights Reserved.</p>
         </div>
         <div>
           <ShadcnNavigationMenu>
@@ -55,7 +53,7 @@ const Footer = () => {
               </NavigationMenuItem>
               <span className="w-0.5 h-3 bg-white" />
               <NavigationMenuItem>
-                <NavigationMenu.Link className={cn(navigationMenuTriggerStyle())}>Product</NavigationMenu.Link>
+                <NavigationMenu.Link className={cn(navigationMenuTriggerStyle())}>Products</NavigationMenu.Link>
               </NavigationMenuItem>
               <span className="w-0.5 h-3 bg-white" />
               <NavigationMenuItem>
@@ -67,7 +65,7 @@ const Footer = () => {
               </NavigationMenuItem>
               <span className="w-0.5 h-3 bg-white" />
               <NavigationMenuItem>
-                <NavigationMenu.Link className={cn(navigationMenuTriggerStyle())}>Book Demo</NavigationMenu.Link>
+                <NavigationMenu.Link className={cn(navigationMenuTriggerStyle(), "pr-0")}>Book Demo</NavigationMenu.Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </ShadcnNavigationMenu>

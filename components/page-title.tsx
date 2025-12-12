@@ -1,5 +1,4 @@
 import { cn } from "@/utils/shadcn";
-import { Fragment } from "react/jsx-runtime";
 
 interface PageTitleProps {
   title: string;
@@ -19,29 +18,38 @@ const PageTitle = (props: PageTitleProps) => {
   const { title, className, subtitle } = props;
   const words = title.split(" ");
   return (
-    <div className="bg-page-title-gradient font-roboto-condensed">
-      <div
-        className={cn("px-5 text-white bg-center bg-cover border-gradient-line overflow-hidden", className)}
-        style={{ backgroundImage: "url('/background/Header_line_H200.png')" }}
-      >
-        {words.map((word, index) => {
-          const isBold = word.startsWith('*') && word.endsWith('*');
-          const text = isBold ? word.slice(1, -1) : word;
-          return (
-            <Fragment key={index}>
-              <span className={cn("text-6xl xl:text-8xl tracking-tighter leading-1.05em", {
+    <div
+      className={
+        cn("px-7.5 text-white border-gradient-line overflow-hidden", {
+          [!!subtitle ? "pb-2.5" : "pt-[5px]"]: true
+        }, className)}
+      style={{
+        background: `
+          url('/background/Header_line_H200.png') center center / cover,
+          linear-gradient(90deg, #5D0000 0%, #4C4C4C 20%, #000000 99.52%)
+        ` }}
+    >
+      {words.map((word, index) => {
+        const isBold = word.startsWith('*') && word.endsWith('*');
+        const text = isBold ? word.slice(1, -1) : word;
+        return (
+          <span
+            key={index}
+            className={
+              cn("text-6xl xl:text-8xl tracking-tighter", {
                 [isBold ? "font-black" : "font-light"]: true
-              })}>{text}</span>
-              {index < words.length - 1 && ' '}
-            </Fragment>
-          );
-        })}
-        {subtitle && (
-          <div className="text-[42px] font-light tracking-normal leading-1em">
-            {subtitle}
-          </div>
-        )}
-      </div>
+              })}
+          >
+            {text}
+            {" "}
+          </span>
+        );
+      })}
+      {subtitle && (
+        <div className="text-[42px] font-light -tracking-3 leading-1em uppercase max-w-227">
+          {subtitle}
+        </div>
+      )}
     </div>
   )
 }

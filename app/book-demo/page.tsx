@@ -8,6 +8,8 @@ import { FormControl, FormField, FormItem, FormLabel } from "@/components/ui/for
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import { apiSendBookDemoEmail } from "@/lib/api/email"
+import { useMutation } from "@tanstack/react-query"
 
 const BookDemo = () => {
   const form = useForm<BookFormSchemaType>({
@@ -17,8 +19,20 @@ const BookDemo = () => {
   })
   const { control, handleSubmit } = form
 
+  const mutation = useMutation({
+    mutationFn: (data: BookFormSchemaType) => apiSendBookDemoEmail(data),
+    onSuccess: () => {
+      alert("Your demo request has been sent successfully!")
+      form.reset()
+    },
+    onError: () => {
+      alert("There was an error sending your request. Please try again later.")
+    },
+  })
+
   const onSubmit = (data: BookFormSchemaType) => {
     console.log("Form Data:", data)
+    mutation.mutate(data)
   }
 
   return (
@@ -30,9 +44,9 @@ const BookDemo = () => {
           alt="Main Image"
           width={1440}
           height={705}
-          className="w-full h-152 object-cover object-bottom"
+          className="w-full h-152 object-cover object-[10%]"
         />
-        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 tracking-tight text-white text-[55px] w-225 leading-15 flex flex-col items-center">
+        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 tracking-tight text-white text-[55px] w-225 leading-15 flex flex-col items-center">
           <div className="font-light text-right w-full uppercase">DON&apos;T HESITATE TO EXPERIENCE -</div>
           <div className="text-center flex items-center justify-start w-full">
             <span className="bg-main-text-gradient font-medium px-2 uppercase ">BOOK A DEMO WITH US NOW !</span>
@@ -49,13 +63,13 @@ const BookDemo = () => {
         }}
       >
         <FormProvider {...form}>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-10 items-center w-3/4">
+          <form className="flex flex-col gap-10 items-center w-3/4">
             <FormField
               control={control}
               name="name"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="px-5 w-full">
-                  <FormLabel className="text-[26px] font-light">
+                  <FormLabel className="text-[26px] font-light gap-1">
                     <span className="text-red">*</span>
                     NAME
                   </FormLabel>
@@ -151,7 +165,7 @@ const BookDemo = () => {
               name="phone"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="px-5 w-full">
-                  <FormLabel className="text-[26px] font-light">
+                  <FormLabel className="text-[26px] font-light gap-1">
                     <span className="text-red">*</span>
                     PHONE
                   </FormLabel>
@@ -171,7 +185,7 @@ const BookDemo = () => {
               name="email"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="px-5 w-full">
-                  <FormLabel className="text-[26px] font-light">
+                  <FormLabel className="text-[26px] font-light gap-1">
                     <span className="text-red">*</span>
                     EMAIL ADDRESS
                   </FormLabel>
@@ -191,7 +205,7 @@ const BookDemo = () => {
               name="requirements"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="px-5 w-full">
-                  <FormLabel className="text-[26px] font-light">
+                  <FormLabel className="text-[26px] font-light gap-1">
                     <span className="text-red">*</span>
                     REQUIREMENTS
                   </FormLabel>
@@ -214,7 +228,10 @@ const BookDemo = () => {
                 text-white text-[26px] font-light
                 p-5 mt-8 h-16.5 w-33
                 rounded-none cursor-pointer
-              ">
+              "
+              onClick={handleSubmit(onSubmit)}
+              disabled={mutation.isPending}
+            >
               SUBMIT
             </Button>
           </form>

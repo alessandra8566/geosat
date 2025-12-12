@@ -64,6 +64,13 @@
   border-image-slice: 1;
 }
 
+@utility border-gradient-dropdown-item-hover {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-image-source: var(--gradient-border-dropdown-item-hover);
+  border-image-slice: 1;
+}
+
 @utility mirror-container {
   position: relative;
   width: 100%;

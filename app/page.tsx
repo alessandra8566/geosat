@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const products = [
   {
-    title: "GEOSAT",
+    title: "GEOSAT 2.0",
     description: "Daily open air operation partner",
     url: "/index_bt04-1.png",
     hoverUrl: "/index_bt04-2.png",
@@ -42,8 +42,8 @@ export default function Home() {
           style={{ backgroundImage: "url('/index_bt01-2.png')" }}
         >
           <div className="flex flex-col justify-between p-5 pb-10 bg-card text-white/80 hover:bg-black/30 hover:text-black h-full">
-            <p className="text-4xl font-bold font-roboto-condensed">SUPER DRONE FOR NEXT OSIRIS</p>
-            <p className="text-xl">Next Generation Autonomous Inspection and S&R multirotor</p>
+            <p className="text-[42px] leading-1em -tracking-3 font-bold">SUPER DRONE FOR NEXT OSIRIS</p>
+            <p className="text-xl leading-1.3em">Next Generation Autonomous Inspection and S&R multirotor</p>
           </div>
         </div>
         <div className="grow w-2/3 bg-background">
@@ -55,7 +55,11 @@ export default function Home() {
             className="w-full object-cover"
           />
         </div>
-        <div className="max-w-1/3 w-106.5 max-h-75 2xl:max-h-96 overflow-hidden flex justify-center border-b border-black">
+        <div className="relative max-w-1/3 w-106.5 h-75 overflow-hidden flex justify-center border-b border-black">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{ background: "linear-gradient(336.63deg, rgba(var(--color-black-rgb), 0) 35.06%, rgba(var(--color-black-rgb), 0.4) 81.86%)" }}
+          />
           <Image
             src="/index_main02-2.png"
             alt="Side Image"
@@ -71,34 +75,34 @@ export default function Home() {
             style={{ backgroundImage: "url('/index_bt02-2.png')" }}
           >
             <div className="flex flex-col justify-between p-5 pb-10 bg-card text-white/80 hover:bg-black/30 hover:text-black h-full">
-              <p className="text-4xl font-bold font-roboto-condensed">PROPRIETARY GCS SOFTWARE</p>
-              <p className="text-xl w-60">Intuitive design for fast deployment in the field</p>
+              <p className="text-[42px] leading-1em -tracking-3 font-bold">PROPRIETARY GCS SOFTWARE</p>
+              <p className="text-xl leading-1.3em w-60">Intuitive design for fast deployment in the field</p>
             </div>
           </div>
           <div className="bg-home-index-03 flex-1 bg-size-[60%_auto] bg-no-repeat bg-position-[right_-50%_top_70%]">
             <div className="flex flex-col justify-between p-5 pb-10 bg-card text-white/80 hover:bg-black/30 hover:text-black h-full">
-              <p className="text-4xl font-bold font-roboto-condensed w-72">RECENT EVENTS HOT NEWS</p>
-              <p className="text-xl w-72">Geosat presenting at CUAV with our drone family</p>
+              <p className="text-[42px] leading-1em -tracking-3 font-bold w-80">RECENT EVENTS HOT NEWS</p>
+              <p className="text-xl leading-1.3em w-70">Geosat presenting at CUAV with our drone family</p>
             </div>
           </div>
         </div>
       </div>
-      <PageTitle title="WHY CHOOSE *GEOSAT*" className="py-2" />
+      <PageTitle title="WHY CHOOSE *GEOSAT*" />
       <div className="flex w-full flex-wrap">
-        <div className="flex flex-col justify-between p-5 pb-10 w-1/3 bg-card text-white/80">
-          <p className="text-base lg:text-xl">Geosat has been a drone service company for more than 10 years, with the knowledge of actual operation, we design drones with exellent stability and high resolution camera for all kinds of missions. </p>
-          <div className="flex flex-col gap-6 xl:gap-8">
+        <div className="flex flex-col justify-between p-5 max-w-1/3 w-106.5 bg-card text-white/80">
+          <p className="text-base lg:text-xl leading-1.2em">Geosat has been a drone service company for more than 10 years, with the knowledge of actual operation, we design drones with exellent stability and high resolution camera for all kinds of missions. </p>
+          <div className="flex flex-col gap-5">
             <div>
-              <p className="text-2xl font-roboto-condensed font-bold bg-page-subtitle-gradient pt-2.5 pb-1 px-2.5">DRONE PIONEER</p>
-              <p className="font-thin pt-1 pb-2.5 px-2.5">Leading drone company in Taiwan with more than 10 years in drone application.</p>
+              <p className="text-[22px] leading-0.9em -tracking-3 text-white font-bold bg-page-subtitle-gradient pt-2.5 pb-1 px-2.5">DRONE PIONEER</p>
+              <p className="font-light text-[18px] leading-1.2em pt-1 pb-2.5 px-2.5">Leading drone company in Taiwan with more than 10 years in drone application.</p>
             </div>
             <div>
-              <p className="text-2xl font-roboto-condensed font-bold bg-page-subtitle-gradient pt-2.5 pb-1 px-2.5">RAPID SUPPORT</p>
-              <p className="font-thin pt-1 pb-2.5 px-2.5">Offers quick support whenever there&apos;s a requirement</p>
+              <p className="text-[22px] leading-0.9em -tracking-3 text-white font-bold bg-page-subtitle-gradient pt-2.5 pb-1 px-2.5">RAPID SUPPORT</p>
+              <p className="font-light text-[18px] leading-1.2em pt-1 pb-2.5 px-2.5">Offers quick support whenever there&apos;s a requirement</p>
             </div>
           </div>
         </div>
-        <div className="w-2/3">
+        <div className="grow w-2/3">
           <img
             src="/index03.png"
             alt="Main Image"
@@ -108,23 +112,23 @@ export default function Home() {
           />
         </div>
       </div>
-      <PageTitle title="*EXCELLENT* PRODUCTS" className="py-2" />
+      <PageTitle title="*EXCELLENCE* PRODUCTS" />
       <div className="flex justify-center">
-        <div className="max-w-11/12 flex gap-5 mt-22.5 mb-20">
+        <div className="flex gap-5 px-10 py-22.5">
           {
             products.map((product, index) => (
               <div
                 key={index}
                 className={cn("relative w-full h-96 bg-white border-gradient-card hover:border-none", {
-                  "top-10": index === 1
+                  "top-14.5": index === 1
                 })}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(undefined)}
               >
                 <div className="bg-card hover:bg-black/30 hover:text-black">
-                  <div className="p-5 pt-12">
-                    <p className="text-4xl font-bold font-roboto-condensed">{product.title}</p>
-                    <p className="text-lg">{product.description}</p>
+                  <div className="p-5 pt-12.5 gap-1 flex flex-col">
+                    <p className="text-4xl font-black leading-1em">{product.title}</p>
+                    <p className="text-xl leading-1.3em">{product.description}</p>
                   </div>
                   <div className={cn("relative h-70", { "border-gradient-card-image": hoveredIndex === index })}>
                     <Image
