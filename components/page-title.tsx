@@ -1,9 +1,12 @@
-import { cn } from "@/utils/shadcn";
+import { cn } from '@/utils/shadcn'
+import { Button } from './ui/button'
+import { Download } from 'lucide-react'
 
 interface PageTitleProps {
-  title: string;
-  subtitle?: string;
-  className?: string;
+  title: string
+  subtitle?: string
+  className?: string
+  downloadLink?: string
 }
 
 /**
@@ -15,39 +18,49 @@ interface PageTitleProps {
  */
 
 const PageTitle = (props: PageTitleProps) => {
-  const { title, className, subtitle } = props;
-  const words = title.split(" ");
+  const { title, className, subtitle, downloadLink } = props
+  const words = title.split(' ')
   return (
     <div
-      className={
-        cn("px-7.5 text-white border-gradient-line overflow-hidden", {
-          [!!subtitle ? "pb-2.5" : "pt-[5px]"]: true
-        }, className)}
+      className={cn(
+        'border-gradient-line overflow-hidden px-7.5 text-white',
+        {
+          [!!subtitle ? 'pb-2.5' : 'pt-[5px]']: true,
+        },
+        className
+      )}
       style={{
         background: `
           url('/background/Header_line_H200.png') center center / cover,
           linear-gradient(90deg, #5D0000 0%, #4C4C4C 20%, #000000 99.52%)
-        ` }}
+        `,
+      }}
     >
       {words.map((word, index) => {
-        const isBold = word.startsWith('*') && word.endsWith('*');
-        const text = isBold ? word.slice(1, -1) : word;
+        const isBold = word.startsWith('*') && word.endsWith('*')
+        const text = isBold ? word.slice(1, -1) : word
         return (
           <span
             key={index}
-            className={
-              cn("text-6xl xl:text-8xl tracking-tighter", {
-                [isBold ? "font-black" : "font-light"]: true
-              })}
+            className={cn('text-6xl tracking-tighter xl:text-8xl', {
+              [isBold ? 'font-black' : 'font-light']: true,
+            })}
           >
-            {text}
-            {" "}
+            {text}{' '}
           </span>
-        );
+        )
       })}
       {subtitle && (
-        <div className="text-[42px] font-light -tracking-3 leading-1em uppercase max-w-227">
-          {subtitle}
+        <div className="flex-start flex max-w-6/7 items-start gap-9 uppercase">
+          <p className="-tracking-3 leading-1em text-[42px] font-light">{subtitle}</p>
+          {!!downloadLink && (
+            <div className="hover:border-gradient-download-btn rounded-[6px] border-2 border-white/30! p-px text-white/70 hover:border-none hover:font-semibold">
+              <Button variant="outline" className="relative cursor-pointer rounded-[6px] border-none! bg-black/50! px-4! py-2! hover:bg-black!">
+                <Download className="mr-2 size-5" />
+                <p className="leading-1.3em text-base">Brochure Download</p>
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>

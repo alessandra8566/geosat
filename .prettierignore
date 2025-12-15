@@ -1,0 +1,13 @@
+# Ignore Next.js build/cache artifacts
+.next
+out
+build
+
+# Ignore node modules
+node_modules
+
+# Ignore lockfiles and env files
+package-lock.json
+yarn.lock
+.env
+.env.local

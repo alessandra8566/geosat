@@ -1,10 +1,10 @@
-import { cn } from "@/utils/shadcn";
-import { Fragment } from "react/jsx-runtime";
+import { cn } from '@/utils/shadcn'
+import { Fragment } from 'react/jsx-runtime'
 
 interface PageSubtitleProps {
-  title: string;
-  className?: string;
-  border?: boolean;
+  title: string
+  className?: string
+  border?: boolean
 }
 
 /**
@@ -16,20 +16,20 @@ interface PageSubtitleProps {
  */
 
 const PageSubtitle = (params: PageSubtitleProps) => {
-  const { className, title, border = true } = params;
-  const words = title.split(" ");
+  const { className, title, border = true } = params
+  const words = title.split(' ')
   return (
-    <div className={cn("px-7.5 pt-12.5 w-full", { " border-gradient-subtitle": border }, className)}>
-      <div className="border-l-10 border-primary pl-2.5 text-[50px] leading-1.3em tracking-tighter font-light uppercase">
+    <div className={cn('w-full px-7.5 pt-12.5', { 'border-gradient-subtitle': border }, className)}>
+      <div className="border-primary leading-1.3em border-l-10 pl-2.5 text-[50px] font-light tracking-tighter uppercase">
         {words.map((word, index) => {
-          const isBold = word.startsWith('*') && word.endsWith('*');
-          const text = isBold ? word.slice(1, -1) : word;
+          const isBold = word.startsWith('*') && word.endsWith('*')
+          const text = isBold ? word.slice(1, -1) : word
           return (
             <Fragment key={index}>
-              <span className={isBold ? "font-medium" : "font-light"}>{text}</span>
+              <span className={isBold ? 'font-medium' : 'font-light'}>{text}</span>
               {index < words.length - 1 && ' '}
             </Fragment>
-          );
+          )
         })}
       </div>
     </div>

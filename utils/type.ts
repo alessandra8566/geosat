@@ -1,8 +1,8 @@
 export interface ProductMainProps {
-  src: string;
+  src: string
   specs: {
-    title: string;
-    description: string;
-  }[];
-  size?: "default" | "lg";
+    title: string
+    description: string
+  }[]
+  size?: 'default' | 'lg'
 }
