@@ -56,7 +56,7 @@ const PageTitle = (props: PageTitleProps) => {
           {!!downloadLink && (
             <div className="hover:border-gradient-download-btn rounded-[6px] border-2 border-white/30! p-px text-white/70 hover:border-none hover:font-semibold">
               <Button variant="outline" className="relative cursor-pointer rounded-[6px] border-none! bg-black/50! px-4! py-2! hover:bg-black!">
-                <Download className="mr-2 size-5" />
+                <Download className="mr-1 size-5" />
                 <p className="leading-1.3em text-base">Brochure Download</p>
               </Button>
             </div>

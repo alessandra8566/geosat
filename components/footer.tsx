@@ -106,7 +106,7 @@ const Footer = () => {
                           </DropdownMenu.Content>
                         </DropdownMenu.Portal>
                       </DropdownMenu.Root>
-                      <span className="mx-2 h-4 w-0.5 bg-white" />
+                      <span className="mx-2 mt-1 h-4 w-0.5 bg-white" />
                     </li>
                   )
                 }
@@ -122,7 +122,7 @@ const Footer = () => {
                         {route.title}
                       </Link>
                     </li>
-                    {index !== footerRoutes.length - 1 && <span className="mx-2 h-4 w-0.5 bg-white" />}
+                    {index !== footerRoutes.length - 1 && <span className="mx-2 mt-1 h-4 w-0.5 bg-white" />}
                   </div>
                 )
               })}
