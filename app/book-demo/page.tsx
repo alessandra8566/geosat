@@ -39,7 +39,7 @@ const BookDemo = () => {
     <div>
       <PageTitle title="*BOOK* *DEMO*" />
       <div className="relative">
-        <img src="/bookdemo_main.png" alt="Main Image" width={1440} height={705} className="h-152 w-full object-cover object-[10%]" />
+        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="h-152 w-full object-cover object-[10%]" />
         <div className="absolute bottom-16 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center text-[55px] leading-15 tracking-tight text-white">
           <div className="w-full text-right font-light uppercase">DON&apos;T HESITATE TO EXPERIENCE -</div>
           <div className="flex w-full items-center justify-start text-center">
@@ -64,7 +64,7 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span>
+                    <span className="text-red">*</span>{' '}
                     NAME
                   </FormLabel>
                   <FormControl>

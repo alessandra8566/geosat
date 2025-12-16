@@ -8,10 +8,10 @@ const useIsMobile = (breakpoint: number = SMALL_MOBILE_BREAKPOINT) => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (typeof window === "undefined") return
+    if (typeof globalThis === "undefined") return
 
-    const checkMobile = () => setIsMobile(window.innerWidth < breakpoint)
-    const mediaQueryList = window.matchMedia(`(max-width: ${breakpoint}px)`)
+    const checkMobile = () => setIsMobile(globalThis.innerWidth < breakpoint)
+    const mediaQueryList = globalThis.matchMedia(`(max-width: ${breakpoint}px)`)
     const handleMediaQueryChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
 
     // Initial check

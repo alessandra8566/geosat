@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </div>
         <div className="bg-background w-2/3 grow">
-          <img src="/index_main_01.png" alt="Main Image" width={1014} height={540} className="w-full object-cover" />
+          <img src="/index_main_01.png" alt="Home Main" width={1014} height={540} className="w-full object-cover" />
         </div>
         <div className="relative flex h-75 w-106.5 max-w-1/3 justify-center overflow-hidden border-b border-black">
           <div
@@ -89,7 +89,7 @@ export default function Home() {
           </div>
         </div>
         <div className="w-2/3 grow">
-          <img src="/index03.png" alt="Main Image" width={1014} height={495} className="h-125 w-full object-cover" />
+          <img src="/index03.png" alt="Home Main2" width={1014} height={495} className="h-125 w-full object-cover" />
         </div>
       </div>
       <PageTitle title="*EXCELLENCE* PRODUCTS" />

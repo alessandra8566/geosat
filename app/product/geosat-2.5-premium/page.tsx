@@ -144,11 +144,24 @@ const GeosatPremium = () => {
           }}
         >
           <div className="flex w-5/6 justify-around gap-17.5 py-20">
-            {productsAccessories.map((product, index) => (
-              <div key={index} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(undefined)}>
+            {productsAccessories.map((product) => (
+              <div key={product.title} >
                 <div className="bg-black">
-                  <div className="border-gradient-bottom-left">
-                    <img src={hoveredIndex === index ? product.hoverUrl : product.url} alt={product.title} width={350} height={350} className="aspect-square" />
+                  <div className="border-gradient-bottom-left relative">
+                    <img
+                      src={product.url}
+                      alt={product.title}
+                      width={350}
+                      height={350}
+                      className="aspect-square object-cover w-full h-full hover:opacity-0 transition-opacity duration-300"
+                    />
+                    <img
+                      src={product.hoverUrl}
+                      alt={`Hover ${product.title}`}
+                      width={350}
+                      height={350}
+                      className="aspect-square object-cover w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    />
                   </div>
                   <div className="px-5 py-2">
                     <p className="font-roboto text-3xl font-bold">{product.title}</p>
