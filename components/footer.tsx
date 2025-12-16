@@ -72,9 +72,9 @@ const Footer = () => {
           <div>
             <ul className="flex">
               {footerRoutes.map((route, index) => {
-                if (!!route.children) {
+                if (Boolean(route.children)) {
                   return (
-                    <li key={index} className="flex items-center justify-between">
+                    <li key={route.title} className="flex items-center justify-between">
                       <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>
                         <DropdownMenu.Trigger asChild>
                           <button
@@ -87,9 +87,9 @@ const Footer = () => {
                         </DropdownMenu.Trigger>
                         <DropdownMenu.Portal>
                           <DropdownMenu.Content className="z-50 box-content w-50 bg-black text-base text-nowrap text-white/70" sideOffset={22}>
-                            {route.children.map((product, sub_index) => (
+                            {route.children?.map((product) => (
                               <DropdownMenu.Item
-                                key={sub_index}
+                                key={product.title}
                                 className={cn(
                                   `hover:border-gradient-dropdown-item-hover relative flex cursor-pointer items-center border border-transparent bg-[#24242499] hover:bg-black/90 hover:text-white focus:outline-none`,
                                   {
@@ -111,7 +111,7 @@ const Footer = () => {
                   )
                 }
                 return (
-                  <div key={index} className="flex items-center justify-between">
+                  <div key={route.title} className="flex items-center justify-between">
                     <li>
                       <Link
                         href={route.path}

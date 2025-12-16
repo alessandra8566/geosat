@@ -3,8 +3,8 @@
   --breakpoint-desktop: 1920px;
   --breakpoint-laptop: 1440px;
   --breakpoint-tablet: 1024px;
-  --breakpoint-mobile: 768px;
-  --breakpoint-small-mobile: 393px;
+  --breakpoint-mobile: 769px;
+  --breakpoint-small-mobile: 394px;
 
   /* custom letter spacing */
   --tracking-1: 0.01em;

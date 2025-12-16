@@ -23,7 +23,7 @@ const PageTitle = (props: PageTitleProps) => {
   return (
     <div
       className={cn(
-        'border-gradient-line overflow-hidden px-7.5 text-white',
+        'border-gradient-line mobile:px-7.5 overflow-hidden px-5 text-white',
         {
           [!!subtitle ? 'pb-2.5' : 'pt-[5px]']: true,
         },
@@ -42,7 +42,7 @@ const PageTitle = (props: PageTitleProps) => {
         return (
           <span
             key={index}
-            className={cn('text-6xl tracking-tighter xl:text-8xl', {
+            className={cn('small-mobile:text-[65px] leading-1em text-[45px] tracking-tighter xl:text-8xl', {
               [isBold ? 'font-black' : 'font-light']: true,
             })}
           >

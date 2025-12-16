@@ -6,3 +6,8 @@ export interface ProductMainProps {
   }[]
   size?: 'default' | 'lg'
 }
+
+export interface NavProps {
+  isOverlayOpen: boolean
+  setOverlayOpen: (open: boolean) => void
+}

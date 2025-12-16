@@ -34,7 +34,7 @@ const ProductMain = (params: ProductMainProps & VariantProps<typeof productVaria
       <div className={productVariants({ product })}>
         {specs?.map((spec, index) => (
           <div
-            key={index}
+            key={spec.title}
             className={cn('border-l border-black px-7.5 py-5', {
               'bg-product-main-intro-r-gradient': index == 0,
               'bg-primary/75': index == 1 || index == 2,

@@ -1,9 +1,6 @@
-'use client'
-
 import Image from 'next/image'
 import PageTitle from '@/components/page-title'
 import PageSubtitle from '@/components/page-subtitle'
-import { useState } from 'react'
 import VerticalCarousel from './vertical-carousel'
 import ProductMain from '@/components/product-main'
 
@@ -33,7 +30,6 @@ const productSpecs = [
 ]
 
 const GeosatPremium = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number>()
   return (
     <div>
       <PageTitle title="*GEOSAT* *2.5* PREMIUM" subtitle="BUILT TO NAVIGATE THROUGH COMPLEX SCENARIO" downloadLink="/" />
@@ -145,22 +141,16 @@ const GeosatPremium = () => {
         >
           <div className="flex w-5/6 justify-around gap-17.5 py-20">
             {productsAccessories.map((product) => (
-              <div key={product.title} >
+              <div key={product.title}>
                 <div className="bg-black">
                   <div className="border-gradient-bottom-left relative">
-                    <img
-                      src={product.url}
-                      alt={product.title}
-                      width={350}
-                      height={350}
-                      className="aspect-square object-cover w-full h-full hover:opacity-0 transition-opacity duration-300"
-                    />
+                    <img src={product.url} alt={product.title} width={350} height={350} className="aspect-square h-full w-full object-cover transition-opacity duration-300 hover:opacity-0" />
                     <img
                       src={product.hoverUrl}
                       alt={`Hover ${product.title}`}
                       width={350}
                       height={350}
-                      className="aspect-square object-cover w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 aspect-square h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100"
                     />
                   </div>
                   <div className="px-5 py-2">

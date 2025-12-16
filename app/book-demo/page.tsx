@@ -64,8 +64,7 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span>{' '}
-                    NAME
+                    <span className="text-red">*</span> NAME
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Name" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
