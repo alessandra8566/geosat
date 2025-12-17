@@ -1,0 +1,40 @@
+stages:
+  - security_scan
+
+variables:
+  IMAGE_NAME: geosat
+  IMAGE_TAG: 1.0.0
+  # 注意：結尾要有斜線，例如：harbor.wistron.com/geoai/
+  IMAGE_PATH: ${HARBOR_REGISTRY_PROJECT}${IMAGE_NAME}
+
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
+# 只在 main 的通用規則（給 build 用）
+.general:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+dependency_scan:
+  stage: security_scan
+  rules:
+    - when: always
+  tags: [k8s-runners]
+  image: ${HARBOR_BASE_IMAGE_PATH}/gitlab-nexus-iq-pipeline:latest
+  script:
+    - echo "🔒 Running Nexus IQ policy evaluation..."
+    - |
+      /sonatype/evaluate \
+      -s $NEXUS_IQ_URL \
+      -a $NEXUS_IQ_USERNAME:$NEXUS_IQ_PASSWORD \
+      -i ${IMAGE_NAME} \
+      -t build \
+      -r scan-result.json \
+      .
+  artifacts:
+    paths: ["scan-result.json"]
+    when: always
+  allow_failure: true
+
