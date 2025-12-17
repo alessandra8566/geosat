@@ -135,9 +135,9 @@ const MobileNav = (props: NavProps) => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        {headerRoutes.map((route, index) => (
-          <div key={index} className="border-b border-gray-700">
-            {!!route.children ? (
+        {headerRoutes.map((route) => (
+          <div key={route.title} className="border-b border-gray-700">
+            {route.children ? (
               <details className="py-3">
                 <summary
                   className={cn('flex cursor-pointer items-center justify-between py-2 text-lg text-white/90 hover:text-white', {
@@ -147,9 +147,9 @@ const MobileNav = (props: NavProps) => {
                   {route.title}
                 </summary>
                 <div className="pb-2 pl-4">
-                  {route.children.map((product, sub_index) => (
+                  {route.children.map((product) => (
                     <Link
-                      key={sub_index}
+                      key={product.title}
                       href={product.path}
                       className={cn('block py-3 text-base text-white/70 transition-colors hover:text-white', { 'text-primary font-semibold underline': pathname === product.path })}
                       onClick={() => setMenuOpen(false)}

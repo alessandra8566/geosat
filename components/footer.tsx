@@ -72,7 +72,7 @@ const Footer = () => {
           <div>
             <ul className="flex">
               {footerRoutes.map((route, index) => {
-                if (Boolean(route.children)) {
+                if (route.children) {
                   return (
                     <li key={route.title} className="flex items-center justify-between">
                       <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>

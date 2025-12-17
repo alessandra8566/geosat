@@ -25,7 +25,7 @@ const PageTitle = (props: PageTitleProps) => {
       className={cn(
         'border-gradient-line mobile:px-7.5 overflow-hidden px-5 text-white',
         {
-          [!!subtitle ? 'pb-2.5' : 'pt-[5px]']: true,
+          [subtitle ? 'pb-2.5' : 'pt-[5px]']: true,
         },
         className
       )}
