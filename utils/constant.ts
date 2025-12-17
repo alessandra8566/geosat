@@ -1,0 +1,2 @@
+export const SMALL_MOBILE_BREAKPOINT = 394
+export const MOBILE_BREAKPOINT = 769

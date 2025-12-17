@@ -1,0 +1,56 @@
+@theme inline {
+  /* custom breakpoints */
+  --breakpoint-desktop: 1920px;
+  --breakpoint-laptop: 1440px;
+  --breakpoint-tablet: 1024px;
+  --breakpoint-mobile: 769px;
+  --breakpoint-small-mobile: 394px;
+
+  /* custom letter spacing */
+  --tracking-1: 0.01em;
+  --tracking-2: 0.02em;
+  --tracking-3: 0.03em;
+
+  /* custom line height */
+  --spacing-0.9em: 0.9em;
+  --spacing-1em: 1em;
+  --spacing-1.05em: 1.05em;
+  --spacing-1.1em: 1.1em;
+  --spacing-1.2em: 1.2em;
+  --spacing-1.3em: 1.3em;
+
+  /* custom color rgb */
+  --color-red: #ff0000;
+  --color-red-rgb: 255, 0, 0;
+  --color-white-rgb: 255, 255, 255;
+  --color-black-rgb: 0, 0, 0;
+  --color-primary-rgb: 93, 0, 0;
+
+  --color-hover-btn: rgba(43, 2, 2, 0.8);
+  --color-gradient-white-gray: linear-gradient(90deg, var(--color-white) 0%, #999999 100%);
+
+  /* custom background image */
+  --background-image-page-title-gradient: linear-gradient(90deg, var(--primary) 0%, #4c4c4c 20%, var(--color-black) 99.52%);
+  --background-image-page-subtitle-gradient: linear-gradient(90deg, var(--color-black) 0%, #222222 48.08%);
+  --background-image-dropdown-menu-gradient: linear-gradient(180deg, var(--primary) 0%, var(--color-black) 100%);
+  --background-image-product-main-intro-r-gradient: linear-gradient(270deg, rgba(var(--color-primary-rgb), 0.75) 6.65%, rgba(var(--color-black-rgb), 0.75) 100%);
+  --background-image-product-main-intro-l-gradient: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.75) 12.97%, rgba(var(--color-black-rgb), 0.75) 100%);
+  --background-image-main-text-gradient: linear-gradient(90deg, rgba(var(--color-black-rgb), 0.5) 0%, rgba(46, 0, 0, 0.75) 37.02%, #920000 100%);
+
+  --background-image-home-index-03: url('/index_bt03-2.png');
+
+  /* custom gradient borders */
+  --gradient-border-header-bottom: linear-gradient(90deg, rgba(var(--color-red-rgb), 0.5) 0%, rgba(31, 46, 53, 0.5) 100%);
+  --gradient-border: linear-gradient(90deg, #1f2e35 0%, rgba(var(--color-red-rgb), 1) 100%);
+  --gradient-border-card: linear-gradient(99.66deg, var(--color-black) 42.73%, rgb(var(--color-red-rgb)) 71.64%, var(--color-black) 100%);
+  --gradient-border-card-image: linear-gradient(123.27deg, var(--color-black) 30.19%, rgb(var(--color-red-rgb)) 65.37%, var(--color-black) 98.58%);
+  --gradient-border-subtitle: linear-gradient(90deg, var(--color-black) 0%, #ed1c24 100%);
+  --gradient-border-bottom-left: linear-gradient(49deg, #b31313 13.23%, var(--color-black) 56.3%);
+  --gradient-border-round-bottom-right: linear-gradient(139.64deg, var(--color-black) 70.13%, rgb(var(--color-red-rgb)) 91.71%, var(--color-primary) 101.89%, var(--color-black) 111.66%);
+  --gradient-border-round-bottom-left: linear-gradient(218.19deg, var(--color-black) 74.14%, rgb(var(--color-red-rgb)) 92.88%, var(--color-primary) 101.72%, var(--color-black) 110.21%);
+  --gradient-border-btn-top: linear-gradient(59.57deg, var(--color-black) 13.21%, var(--color-red) 52%, var(--color-black) 90.06%);
+  --gradient-border-dropdown-item-hover: linear-gradient(90deg, var(--color-black) 0%, #e61717 50%, var(--color-black) 100%);
+  --gradient-border-download-btn: linear-gradient(132.29deg, rgba(0, 0, 0, 0.8) 4.06%, rgba(179, 19, 19, 0.8) 83.16%);
+
+  --background-color-card: var(--card);
+}
