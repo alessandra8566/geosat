@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/lib/i18n/routing'
 import Image from 'next/image'
 import { cn } from '@/utils/shadcn'
 import { cva } from 'class-variance-authority'

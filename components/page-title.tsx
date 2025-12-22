@@ -23,10 +23,10 @@ const PageTitle = (props: PageTitleProps) => {
   return (
     <div
       className={cn(
-        'border-gradient-line 4xl:px-7.5 overflow-hidden px-5 text-white py-[5px]',
+        'border-gradient-line 4xl:px-7.5 overflow-hidden px-5 py-[5px] text-white',
         {
-          "2xl:py-0 6xl:pt-[5px]": !subtitle,
-          "2xl:pb-2.5 2xl:pt-0": subtitle,
+          '6xl:pt-[5px] 2xl:py-0': !subtitle,
+          '2xl:pt-0 2xl:pb-2.5': subtitle,
         },
         className
       )}

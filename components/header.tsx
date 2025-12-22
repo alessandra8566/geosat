@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/lib/i18n/routing'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { cva } from 'class-variance-authority'
@@ -12,15 +12,16 @@ import { NavProps } from '@/utils/type'
 import useIsMobile from '@/utils/hooks/use-is-mobile'
 import { BREAKPOINTS } from '@/utils/constant'
 import { Menu, X } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const navigationMenuTriggerStyle = cva(
   'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 text-15 leading-1.1em py-2 font-light cursor-pointer text-white hover:underline hover:font-bold focus:underline focus:outline-none'
 )
 
 const headerRoutes = [
-  { title: 'HOME', path: '/' },
+  { title: 'nav.home', path: '/' },
   {
-    title: 'PRODUCT',
+    title: 'nav.product',
     path: '/product',
     children: [
       {
@@ -45,12 +46,13 @@ const headerRoutes = [
       },
     ],
   },
-  { title: 'SOLUTIONS', path: '/solutions' },
-  { title: 'ABOUT', path: '/about' },
+  { title: 'nav.solutions', path: '/solutions' },
+  { title: 'nav.about', path: '/about' },
 ]
 
 const DesktopNav = (props: NavProps) => {
   const { isOverlayOpen, setOverlayOpen } = props
+  const t = useTranslations('common');
   const pathname = usePathname()
   return (
     <div className="flex grow items-center justify-end gap-4">
@@ -62,11 +64,11 @@ const DesktopNav = (props: NavProps) => {
                 <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>
                   <DropdownMenu.Trigger asChild>
                     <button
-                      className={cn(navigationMenuTriggerStyle(), {
+                      className={cn(navigationMenuTriggerStyle(), "uppercase", {
                         'font-bold underline': pathname.split('/')[1] === route.path.split('/')[1],
                       })}
                     >
-                      {route.title}
+                      {t(route.title)}
                     </button>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
@@ -97,19 +99,19 @@ const DesktopNav = (props: NavProps) => {
             <li key={index}>
               <Link
                 href={route.path}
-                className={cn(navigationMenuTriggerStyle(), {
+                className={cn(navigationMenuTriggerStyle(), "uppercase", {
                   'font-bold underline': pathname === route.path,
                 })}
               >
-                {route.title}
+                {t(route.title)}
               </Link>
             </li>
           )
         })}
       </ul>
       <Link href="/book-demo">
-        <Button size="lg" className="bg-primary tracking-1 cursor-pointer px-4 py-3 text-white">
-          BOOK DEMO
+        <Button size="lg" className="bg-primary tracking-1 cursor-pointer px-4 py-3 text-white uppercase">
+          {t('nav.book-demo')}
         </Button>
       </Link>
     </div>

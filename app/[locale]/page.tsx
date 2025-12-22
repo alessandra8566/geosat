@@ -4,7 +4,7 @@ import PageTitle from '@/components/page-title'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utils/shadcn'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/lib/i18n/routing'
 import { useState } from 'react'
 
 const products = [
@@ -112,7 +112,7 @@ export default function Home() {
               onMouseLeave={() => setHoveredIndex(undefined)}
             >
               <div className="bg-card text-white hover:bg-white/70 hover:text-black">
-                <div className="4xl:pt-12.5 flex flex-col gap-1 p-5 pt-7.5">
+                <div className="4xl:pt-12.5 4xl:pb-5 flex flex-col gap-1 p-5 pb-2.5">
                   <p className="leading-1em text-26 4xl:text-4xl font-black">{product.title}</p>
                   <p className="leading-1.3em 4xl:text-xl text-lg">{product.description}</p>
                 </div>

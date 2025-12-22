@@ -3,5 +3,11 @@
   "sonarlint.connectedMode.project": {
     "connectionId": "Geosat SonarQube",
     "projectKey": "Geosat"
-  }
+  },
+  "i18n-ally.localesPaths": ["messages"],
+  "i18n-ally.namespace": true,
+  "i18n-ally.displayLanguage": "en",
+  "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+  "i18n-ally.translate.engines": ["deepl", "google-cn", "google"],
+  "i18n-ally.keystyle": "nested"
 }

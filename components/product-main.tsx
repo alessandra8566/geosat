@@ -29,14 +29,14 @@ const ProductMain = (params: ProductMainProps & VariantProps<typeof productVaria
         {specs?.map((spec, index) => (
           <div
             key={spec.title}
-            className={cn('border-l border-black 6xl:px-7.5 px-5 5xl:py-5 py-2', {
+            className={cn('6xl:px-7.5 5xl:py-5 border-l border-black px-5 py-2', {
               'bg-product-main-intro-r-gradient': index == 0,
               'bg-primary/75': index == 1 || index == 2,
               'bg-product-main-intro-l-gradient': index == 3,
             })}
           >
             <p className="-tracking-3 5xl:text-42 text-3xl font-bold text-white/80">{spec.title}</p>
-            <p className="-tracking-3 5xl:text-xl 5xl:leading-6.5 text-lg leading-1em font-light text-white/80">{spec.description}</p>
+            <p className="-tracking-3 5xl:text-xl 5xl:leading-6.5 leading-1em text-lg font-light text-white/80">{spec.description}</p>
           </div>
         ))}
       </div>

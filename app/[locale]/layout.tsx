@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
 import { Roboto_Flex, Roboto } from 'next/font/google'
 import '@/styles/globals.css'
 import Navbar from '@/components/header'
@@ -28,13 +29,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${robotoFontSemiCondensed.variable} ${robotoFont.variable} bg-background text-foreground`}>
-        <Providers>
-          <div className="mx-auto max-w-[1440px]">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </Providers>
+        <NextIntlClientProvider>
+          <Providers>
+            <div className="mx-auto max-w-[1440px]">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </Providers>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
