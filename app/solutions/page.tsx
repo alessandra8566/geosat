@@ -17,10 +17,10 @@ const Solutions = () => {
       <PageTitle title="*SOLUTIONS*" />
       <div className="relative">
         <Image src="/solution_main01.png" alt="Main Image" width={1440} height={705} className="h-152 w-full object-cover object-bottom" />
-        <div className="absolute bottom-24 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center text-[55px] leading-15 tracking-tight text-white">
+        <div className="text-55 absolute bottom-24 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center leading-15 tracking-tight text-white">
           <div className="flex w-full items-center justify-center text-center">
             <span className="bg-main-text-gradient px-2 font-medium"> REACH THE UNREACHABLE</span>
-            <span className="px-2 text-[40px] font-light"> & </span>
+            <span className="text-40 px-2 font-light"> & </span>
           </div>
           <div className="w-full text-left font-light">GATHER INFORMATION</div>
           <div className="w-full -translate-x-30 text-right font-light">WITH A BLINK OF AN EYE</div>

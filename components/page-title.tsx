@@ -23,9 +23,10 @@ const PageTitle = (props: PageTitleProps) => {
   return (
     <div
       className={cn(
-        'border-gradient-line mobile:px-7.5 overflow-hidden px-5 text-white',
+        'border-gradient-line 4xl:px-7.5 overflow-hidden px-5 text-white py-[5px]',
         {
-          [subtitle ? 'pb-2.5' : 'pt-[5px]']: true,
+          "2xl:py-0 6xl:pt-[5px]": !subtitle,
+          "2xl:pb-2.5 2xl:pt-0": subtitle,
         },
         className
       )}
@@ -42,7 +43,7 @@ const PageTitle = (props: PageTitleProps) => {
         return (
           <span
             key={index}
-            className={cn('small-mobile:text-[65px] leading-1em text-[45px] tracking-tighter xl:text-8xl', {
+            className={cn('leading-0.9em 2xl:leading-1em 2xl:text-60 text-45 6xl:text-8xl tracking-tighter', {
               [isBold ? 'font-black' : 'font-light']: true,
             })}
           >
@@ -51,13 +52,13 @@ const PageTitle = (props: PageTitleProps) => {
         )
       })}
       {subtitle && (
-        <div className="flex-start flex max-w-6/7 items-start gap-9 uppercase">
-          <p className="-tracking-3 leading-1em text-[42px] font-light">{subtitle}</p>
+        <div className="flex-start 6xl:gap-9 3xl:flex-row flex flex-col items-start gap-2 uppercase">
+          <p className="-tracking-3 leading-1em 6xl:text-42 text-2xl font-light">{subtitle}</p>
           {!!downloadLink && (
-            <div className="hover:border-gradient-download-btn rounded-[6px] border-2 border-white/30! p-px text-white/70 hover:border-none hover:font-semibold">
-              <Button variant="outline" className="relative cursor-pointer rounded-[6px] border-none! bg-black/50! px-4! py-2! hover:bg-black!">
-                <Download className="mr-1 size-5" />
-                <p className="leading-1.3em text-base">Brochure Download</p>
+            <div className="hover:border-gradient-download-btn text-0 relative rounded-[6px] border-2 border-white/30! p-px text-white/70 hover:border-none hover:font-semibold">
+              <Button variant="outline" className="6xl:py-2! relative h-full cursor-pointer rounded-[6px] border-none! bg-black/50! px-4 py-0 hover:bg-black!">
+                <Download className="6xl:size-5 mr-1 size-3" />
+                <p className="leading-1.3em 6xl:text-base text-sm">Brochure Download</p>
               </Button>
             </div>
           )}

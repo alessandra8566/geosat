@@ -20,7 +20,7 @@ const PageSubtitle = (params: PageSubtitleProps) => {
   const words = title.split(' ')
   return (
     <div className={cn('w-full px-7.5 pt-12.5', { 'border-gradient-subtitle': border }, className)}>
-      <div className="border-primary leading-1.3em border-l-10 pl-2.5 text-[50px] font-light tracking-tighter uppercase">
+      <div className="border-primary leading-1.3em text-50 border-l-10 pl-2.5 font-light tracking-tighter uppercase">
         {words.map((word, index) => {
           const isBold = word.startsWith('*') && word.endsWith('*')
           const text = isBold ? word.slice(1, -1) : word

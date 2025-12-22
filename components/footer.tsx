@@ -42,7 +42,7 @@ const footerRoutes = [
 ]
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex w-max items-center justify-center rounded-md p-2 pb-0 font-bold cursor-pointer text-lg leading-1em tracking-1 text-white hover:underline focus:underline'
+  'group inline-flex w-max items-center justify-center rounded-md p-2 pb-0 font-bold cursor-pointer text-lg leading-1em tracking-1 text-white hover:underline focus:underline focus-visible:outline-none'
 )
 
 const Footer = () => {
@@ -52,7 +52,7 @@ const Footer = () => {
     <>
       {isOverlayOpen && <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setOverlayOpen(false)} />}
       <div
-        className="relative flex h-75 w-full flex-col justify-between px-15 pt-[77px] pb-12"
+        className="5xl:h-75 4xl:pt-[77px] 3xl:pt-7.5 5xl:gap-0 relative flex h-auto w-full flex-col justify-between gap-12.5 p-5 pt-10.5 xl:px-15 xl:pb-12"
         style={{
           background: `
           url('/background/footer_bk.png') center center / cover
@@ -62,15 +62,18 @@ const Footer = () => {
         <Link href="/" className="text-primary cursor-pointer text-xl font-bold tracking-tight">
           <Image src="/icons/logo_name.svg" alt="logo" width={120} height={46} />
         </Link>
-        <div className="flex items-end justify-between">
+        <div className="item-start 5xl:gap-0 5xl:items-end 5xl:flex-row flex flex-col justify-between gap-4">
           <div className="tracking-1 text-sm text-white">
             <Image src="/icons/youtube.svg" alt="logo" width={32} height={23} className="mb-[15px]" />
             <p className="leading-1.3em">Email: Geosat@geosat.com</p>
             <p className="leading-1.3em">Phone: (+886) 6616-9999</p>
-            <p className="leading-1.3em">Copyright ©2025 GEOSAT CORPORATION. All Rights Reserved.</p>
+            <p className="leading-1.3em">
+              Copyright ©2025 GEOSAT CORPORATION. <br className="xl:hidden" />
+              All Rights Reserved.
+            </p>
           </div>
           <div>
-            <ul className="flex">
+            <ul className="flex flex-wrap">
               {footerRoutes.map((route, index) => {
                 if (route.children) {
                   return (
@@ -78,7 +81,7 @@ const Footer = () => {
                       <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>
                         <DropdownMenu.Trigger asChild>
                           <button
-                            className={cn(navigationMenuTriggerStyle(), 'pb-1', {
+                            className={cn(navigationMenuTriggerStyle(), 'pb-1 pl-0', {
                               'font-bold underline': pathname.split('/')[1] === route.path.split('/')[1],
                             })}
                           >
@@ -106,7 +109,7 @@ const Footer = () => {
                           </DropdownMenu.Content>
                         </DropdownMenu.Portal>
                       </DropdownMenu.Root>
-                      <span className="mx-2 mt-1 h-4 w-0.5 bg-white" />
+                      <span className="mx-3 mt-1 mr-4 h-4 w-px bg-white" />
                     </li>
                   )
                 }
@@ -115,14 +118,14 @@ const Footer = () => {
                     <li>
                       <Link
                         href={route.path}
-                        className={cn(navigationMenuTriggerStyle(), {
+                        className={cn(navigationMenuTriggerStyle(), 'pt-0 pl-0 2xl:pt-2', {
                           'font-bold underline': pathname === route.path,
                         })}
                       >
                         {route.title}
                       </Link>
                     </li>
-                    {index !== footerRoutes.length - 1 && <span className="mx-2 mt-1 h-4 w-0.5 bg-white" />}
+                    {index !== footerRoutes.length - 1 && <span className="mx-3 mt-1 mr-4 h-4 w-px bg-white" />}
                   </div>
                 )
               })}

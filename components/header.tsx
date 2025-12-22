@@ -10,11 +10,11 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { NavProps } from '@/utils/type'
 import useIsMobile from '@/utils/hooks/use-is-mobile'
-import { MOBILE_BREAKPOINT } from '@/utils/constant'
+import { BREAKPOINTS } from '@/utils/constant'
 import { Menu, X } from 'lucide-react'
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 text-[15px] leading-1.1em py-2 font-light cursor-pointer text-white hover:underline hover:font-bold focus:underline focus:outline-none'
+  'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 text-15 leading-1.1em py-2 font-light cursor-pointer text-white hover:underline hover:font-bold focus:underline focus:outline-none'
 )
 
 const headerRoutes = [
@@ -186,14 +186,14 @@ const MobileNav = (props: NavProps) => {
 }
 
 const Navbar = () => {
-  const isMobile = useIsMobile(MOBILE_BREAKPOINT)
+  const isMobile = useIsMobile(BREAKPOINTS['3xl'])
   const [isOverlayOpen, setOverlayOpen] = useState(false)
   return (
     <>
       {isOverlayOpen && <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setOverlayOpen(false)} />}
-      <header className="border-gradient-header-bottom mobile:h-20 mobile:px-14 mobile:py-2 sticky top-0 z-50 flex h-15 items-center justify-between bg-black px-4.5 py-5">
+      <header className="border-gradient-header-bottom 3xl:h-20 4xl:px-14 3xl:px-7.5 3xl:py-2 sticky top-0 z-50 flex h-15 items-center justify-between bg-black px-4.5 py-5">
         <Link href="/">
-          <Image src="/icons/logo.svg" alt="logo" width={95} height={29} className="mobile:w-[95px] w-20.5" />
+          <Image src="/icons/logo.svg" alt="logo" width={95} height={29} className="4xl:w-[95px] w-20.5" />
         </Link>
         {isMobile ? <MobileNav isOverlayOpen={isOverlayOpen} setOverlayOpen={setOverlayOpen} /> : <DesktopNav isOverlayOpen={isOverlayOpen} setOverlayOpen={setOverlayOpen} />}
       </header>

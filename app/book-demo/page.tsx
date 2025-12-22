@@ -39,7 +39,7 @@ const BookDemo = () => {
     <div>
       <PageTitle title="*BOOK* *DEMO*" />
       <div className="relative">
-        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="h-152 w-full object-cover object-[10%]" />
+        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="h-152 w-full object-cover" />
         <div className="absolute bottom-16 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center text-[55px] leading-15 tracking-tight text-white">
           <div className="w-full text-right font-light uppercase">DON&apos;T HESITATE TO EXPERIENCE -</div>
           <div className="flex w-full items-center justify-start text-center">
@@ -175,7 +175,7 @@ const BookDemo = () => {
             />
             <Button
               type="button"
-              className="border-gradient-card hover:bg-hover-btn hover:border-gradient-btn-top mt-8 h-16.5 w-33 cursor-pointer rounded-none bg-[#24242499] p-5 text-[26px] font-light text-white focus-visible:border-none focus-visible:ring-0"
+              className="border-gradient-card hover:bg-hover-btn hover:border-gradient-btn-top text-26! mt-8 h-16.5 w-33 cursor-pointer rounded-none bg-[#24242499] p-5 font-light text-white focus-visible:border-none focus-visible:ring-0"
               onClick={handleSubmit(onSubmit)}
               disabled={mutation.isPending}
             >

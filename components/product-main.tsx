@@ -2,12 +2,12 @@ import { cn } from '@/utils/shadcn'
 import { ProductMainProps } from '@/utils/type'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-const productVariants = cva('grid grid-cols-2 absolute right-0 w-167.5 z-2', {
+const productVariants = cva('grid grid-cols-2 3xl:absolute right-0 w-full 3xl:w-90 5xl:w-120 6xl:w-155 7xl:w-167.5 z-2 ', {
   variants: {
     product: {
-      default: 'top-1/2 -translate-y-[54%]',
-      geosat10mr: 'top-1/2 -translate-y-[10%]',
-      geosat10ev: 'top-1/2 translate-y-[20%]',
+      default: '3xl:top-1/2 3xl:-translate-y-[54%]',
+      geosat10mr: '3xl:top-1/2 3xl:-translate-y-[10%]',
+      geosat10ev: '3xl:top-1/2 3xl:translate-y-[20%]',
     },
   },
   defaultVariants: {
@@ -24,25 +24,19 @@ const ProductMain = (params: ProductMainProps & VariantProps<typeof productVaria
   const { specs, product, src, size = 'default' } = params
   return (
     <div className="relative">
-      <div
-        className="absolute inset-0 top-0 left-0 z-1 h-full w-full"
-        style={{
-          background: 'linear-gradient(75.69deg, rgba(var(--color-black-rgb), 0) 25.29%, rgba(var(--color-black-rgb), 0.1) 65.95%)',
-        }}
-      />
-      <img src={src} alt="Main Image" width={1456} height={816} className={cn('z-0 w-full object-cover', sizeClasses[size])} />
+      <img src={src} alt="Main Image" width={1456} height={816} className={cn('z-0 w-full object-contain')} />
       <div className={productVariants({ product })}>
         {specs?.map((spec, index) => (
           <div
             key={spec.title}
-            className={cn('border-l border-black px-7.5 py-5', {
+            className={cn('border-l border-black 6xl:px-7.5 px-5 5xl:py-5 py-2', {
               'bg-product-main-intro-r-gradient': index == 0,
               'bg-primary/75': index == 1 || index == 2,
               'bg-product-main-intro-l-gradient': index == 3,
             })}
           >
-            <p className="leading-1em -tracking-3 text-[42px] font-bold text-white/80">{spec.title}</p>
-            <p className="-tracking-3 text-xl leading-6.5 font-light text-white/80">{spec.description}</p>
+            <p className="-tracking-3 5xl:text-42 text-3xl font-bold text-white/80">{spec.title}</p>
+            <p className="-tracking-3 5xl:text-xl 5xl:leading-6.5 text-lg leading-1em font-light text-white/80">{spec.description}</p>
           </div>
         ))}
       </div>

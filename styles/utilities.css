@@ -98,6 +98,13 @@
   }
 }
 
+@utility text-gradient-white-gray {
+  background-image: var(--color-gradient-white-gray);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 body::-webkit-scrollbar {
   scrollbar-width: none; /* 隱藏滾動條 */
 }

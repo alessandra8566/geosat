@@ -41,8 +41,8 @@ const About = () => {
     <div>
       <PageTitle title="*ABOUTS*" />
       <div className="relative">
-        <img src="/about_main_01.png" alt="About Main" width={1440} height={705} className="h-152 w-full object-cover object-[10%]" />
-        <div className="absolute bottom-24 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center text-[55px] leading-15 tracking-tight text-white">
+        <img src="/about_main_01.png" alt="About Main" width={1440} height={705} className="h-152 w-full object-cover" />
+        <div className="text-55 absolute bottom-24 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center leading-15 tracking-tight text-white">
           <div className="w-full text-left font-light uppercase">WE SOAR IN THE SKY</div>
           <div className="flex w-full items-center justify-center text-center">
             <span className="bg-main-text-gradient px-2 font-medium uppercase">TO PROVIDE A DIFFERENT VIEW.</span>
@@ -67,7 +67,7 @@ const About = () => {
           <div className="mt-2.5 grid grid-cols-4 p-7.5 px-4">
             {timelines.map((item) => (
               <div key={item.year} className="flex flex-col justify-center gap-1">
-                <span className="flex-1 p-5 pb-1 text-[50px] font-extralight">
+                <span className="text-50 flex-1 p-5 pb-1 leading-18.5 font-extralight">
                   <span className="border-gradient-timeline-bottom text-gradient-white-gray pb-2 lg:text-nowrap">{item.year}</span>
                 </span>
                 <span className="flex-1 p-5 pt-1 text-xl font-normal text-white" dangerouslySetInnerHTML={{ __html: item.event.replaceAll('\n', '<br />') }} />
