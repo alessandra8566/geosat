@@ -1,12 +1,17 @@
 import { getRequestConfig } from 'next-intl/server'
 import { routing } from './routing'
 
+const namespaces = [
+  'common',
+  // 'about',
+  // 'book-demo',
+  // 'product',
+  // 'solutions'
+]
+
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = (await requestLocale) ?? 'zh'
-  if (!locale || !routing.locales.includes(locale as any)) {
-    locale = routing.defaultLocale
-  }
-  const namespaces = ['common', 'about', 'book-demo', 'product', 'solutions']
+  if (!locale || !routing.locales.includes(locale as any)) locale = routing.defaultLocale
   const messages = {}
   for (const ns of namespaces) {
     try {

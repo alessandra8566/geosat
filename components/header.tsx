@@ -52,7 +52,7 @@ const headerRoutes = [
 
 const DesktopNav = (props: NavProps) => {
   const { isOverlayOpen, setOverlayOpen } = props
-  const t = useTranslations('common');
+  const t = useTranslations('common')
   const pathname = usePathname()
   return (
     <div className="flex grow items-center justify-end gap-4">
@@ -64,7 +64,7 @@ const DesktopNav = (props: NavProps) => {
                 <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>
                   <DropdownMenu.Trigger asChild>
                     <button
-                      className={cn(navigationMenuTriggerStyle(), "uppercase", {
+                      className={cn(navigationMenuTriggerStyle(), 'uppercase', {
                         'font-bold underline': pathname.split('/')[1] === route.path.split('/')[1],
                       })}
                     >
@@ -99,7 +99,7 @@ const DesktopNav = (props: NavProps) => {
             <li key={index}>
               <Link
                 href={route.path}
-                className={cn(navigationMenuTriggerStyle(), "uppercase", {
+                className={cn(navigationMenuTriggerStyle(), 'uppercase', {
                   'font-bold underline': pathname === route.path,
                 })}
               >
