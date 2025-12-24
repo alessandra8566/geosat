@@ -13,21 +13,21 @@ const products = [
     description: 'Daily open air operation partner',
     url: '/index_bt04-1.png',
     hoverUrl: '/index_bt04-2.png',
-    link: '/products/geosat',
+    link: '/product/geosat-2.0',
   },
   {
     title: 'GEOSAT 2.5 PREMIUM',
     description: 'Built to navigate through complex scenario',
     url: '/index_bt05-1.png',
     hoverUrl: '/index_bt05-2.png',
-    link: '/products/geosat-2-5-premium',
+    link: '/product/geosat-2.5-premium',
   },
   {
     title: 'GEOSAT 10 MR',
     description: 'Multiple payload and infinity possibility',
     url: '/index_bt06-1.png',
     hoverUrl: '/index_bt06-2.png',
-    link: '/products/geosat-10-mr',
+    link: '/product/geosat-10-mr',
   },
 ]
 
@@ -103,8 +103,9 @@ export default function Home() {
       <div className="flex justify-center">
         <div className="4xl:py-22.5 4xl:px-10 flex flex-col p-0 2xl:flex-row 2xl:gap-5 2xl:px-4 2xl:py-14">
           {products.map((product, index) => (
-            <div
-              key={index}
+            <Link
+              key={product.title}
+              href={product.link}
               className={cn('border-gradient-card relative w-full bg-black hover:[border-image-source:none]', {
                 '4xl:top-14.5 2xl:top-6': index === 1,
               })}
@@ -139,7 +140,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

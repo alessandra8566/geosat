@@ -57,10 +57,10 @@ const DesktopNav = (props: NavProps) => {
   return (
     <div className="flex grow items-center justify-end gap-4">
       <ul className="flex">
-        {headerRoutes.map((route, index) => {
-          if (!!route.children) {
+        {headerRoutes.map((route) => {
+          if (route.children) {
             return (
-              <li key={index}>
+              <li key={route.title}>
                 <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>
                   <DropdownMenu.Trigger asChild>
                     <button
@@ -73,9 +73,9 @@ const DesktopNav = (props: NavProps) => {
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
                     <DropdownMenu.Content className="z-50 box-content w-50 bg-black text-base text-nowrap text-white/70" sideOffset={22}>
-                      {route.children.map((product, sub_index) => (
+                      {route.children.map((product) => (
                         <DropdownMenu.Item
-                          key={sub_index}
+                          key={product.title}
                           className={cn(
                             `hover:border-gradient-dropdown-item-hover relative flex cursor-pointer items-center border border-transparent bg-[#24242499] hover:bg-black/90 hover:text-white focus:outline-none`,
                             {
@@ -96,7 +96,7 @@ const DesktopNav = (props: NavProps) => {
             )
           }
           return (
-            <li key={index}>
+            <li key={route.title}>
               <Link
                 href={route.path}
                 className={cn(navigationMenuTriggerStyle(), 'uppercase', {
@@ -120,18 +120,19 @@ const DesktopNav = (props: NavProps) => {
 
 const MobileNav = (props: NavProps) => {
   const { isOverlayOpen: isMenuOpen, setOverlayOpen: setMenuOpen } = props
+  const t = useTranslations('common')
   const pathname = usePathname()
 
   return (
     <div className="flex items-center">
       {/* Hamburger/Close Button */}
-      <Button variant="ghost" size="icon" onClick={() => setMenuOpen(!isMenuOpen)} className="cursor-pointer justify-end text-white hover:bg-transparent!">
+      <Button data-testid="mobile-hamburger" variant="ghost" size="icon" onClick={() => setMenuOpen(!isMenuOpen)} className="cursor-pointer justify-end text-white hover:bg-transparent!">
         {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
       </Button>
 
       {/* Mobile Menu Overlay */}
-
       <div
+        data-testid="mobile-menu"
         className={cn(
           'fixed inset-0 top-15 z-40 flex transform flex-col overflow-y-auto bg-black p-4 transition-transform duration-300 ease-in-out',
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -142,11 +143,11 @@ const MobileNav = (props: NavProps) => {
             {route.children ? (
               <details className="py-3">
                 <summary
-                  className={cn('flex cursor-pointer items-center justify-between py-2 text-lg text-white/90 hover:text-white', {
+                  className={cn('flex cursor-pointer items-center justify-between py-2 text-lg text-white/90 uppercase hover:text-white', {
                     'font-bold text-white': pathname.split('/')[1] === route.path.split('/')[1],
                   })}
                 >
-                  {route.title}
+                  {t(route.title)}
                 </summary>
                 <div className="pb-2 pl-4">
                   {route.children.map((product) => (
@@ -165,10 +166,10 @@ const MobileNav = (props: NavProps) => {
               // Simple Link for routes without children
               <Link
                 href={route.path}
-                className={cn('block py-5 text-lg text-white/90 transition-colors hover:text-white', { 'text-primary font-bold underline': pathname === route.path })}
+                className={cn('block py-5 text-lg text-white/90 uppercase transition-colors hover:text-white', { 'text-primary font-bold underline': pathname === route.path })}
                 onClick={() => setMenuOpen(false)}
               >
-                {route.title}
+                {t(route.title)}
               </Link>
             )}
           </div>
@@ -178,7 +179,7 @@ const MobileNav = (props: NavProps) => {
         <div className="mt-6">
           <Link href="/book-demo" className="w-full" onClick={() => setMenuOpen(false)}>
             <Button size="lg" className="bg-primary tracking-1 w-full cursor-pointer py-3 text-white">
-              BOOK DEMO
+              {t('nav.book-demo')}
             </Button>
           </Link>
         </div>
@@ -189,15 +190,15 @@ const MobileNav = (props: NavProps) => {
 
 const Navbar = () => {
   const isMobile = useIsMobile(BREAKPOINTS['3xl'])
-  const [isOverlayOpen, setOverlayOpen] = useState(false)
+  const [overlayOpen, setOverlayOpen] = useState(false)
   return (
     <>
-      {isOverlayOpen && <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setOverlayOpen(false)} />}
+      {overlayOpen && <button data-testid="header-overlay" className="fixed inset-0 z-40 bg-black/50" aria-label="Close menu" onClick={() => setOverlayOpen(false)} />}
       <header className="border-gradient-header-bottom 3xl:h-20 4xl:px-14 3xl:px-7.5 3xl:py-2 sticky top-0 z-50 flex h-15 items-center justify-between bg-black px-4.5 py-5">
         <Link href="/">
           <Image src="/icons/logo.svg" alt="logo" width={95} height={29} className="4xl:w-[95px] w-20.5" />
         </Link>
-        {isMobile ? <MobileNav isOverlayOpen={isOverlayOpen} setOverlayOpen={setOverlayOpen} /> : <DesktopNav isOverlayOpen={isOverlayOpen} setOverlayOpen={setOverlayOpen} />}
+        {isMobile ? <MobileNav isOverlayOpen={overlayOpen} setOverlayOpen={setOverlayOpen} /> : <DesktopNav isOverlayOpen={overlayOpen} setOverlayOpen={setOverlayOpen} />}
       </header>
     </>
   )

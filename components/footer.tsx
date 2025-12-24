@@ -7,11 +7,12 @@ import { cva } from 'class-variance-authority'
 import { usePathname } from 'next/navigation'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 const footerRoutes = [
-  { title: 'Home', path: '/' },
+  { title: 'nav.home', path: '/' },
   {
-    title: 'Product',
+    title: 'nav.product',
     path: '/product',
     children: [
       {
@@ -36,9 +37,9 @@ const footerRoutes = [
       },
     ],
   },
-  { title: 'Solutions', path: '/solutions' },
-  { title: 'About', path: '/about' },
-  { title: 'Book Demo', path: '/book-demo' },
+  { title: 'nav.solutions', path: '/solutions' },
+  { title: 'nav.about', path: '/about' },
+  { title: 'nav.book-demo', path: '/book-demo' },
 ]
 
 const navigationMenuTriggerStyle = cva(
@@ -46,11 +47,13 @@ const navigationMenuTriggerStyle = cva(
 )
 
 const Footer = () => {
-  const [isOverlayOpen, setOverlayOpen] = useState(false)
+  const [overlayOpen, setOverlayOpen] = useState(false)
   const pathname = usePathname()
+  const t = useTranslations('common')
+
   return (
     <>
-      {isOverlayOpen && <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setOverlayOpen(false)} />}
+      {overlayOpen && <button data-testid="footer-overlay" className="fixed inset-0 z-40 bg-black/50" aria-label="Close menu" onClick={() => setOverlayOpen(false)} />}
       <div
         className="5xl:h-75 4xl:pt-[77px] 3xl:pt-7.5 5xl:gap-0 relative flex h-auto w-full flex-col justify-between gap-12.5 p-5 pt-10.5 xl:px-15 xl:pb-12"
         style={{
@@ -64,7 +67,7 @@ const Footer = () => {
         </Link>
         <div className="item-start 5xl:gap-0 5xl:items-end 5xl:flex-row flex flex-col justify-between gap-4">
           <div className="tracking-1 text-sm text-white">
-            <Image src="/icons/youtube.svg" alt="logo" width={32} height={23} className="mb-[15px]" />
+            <Image src="/icons/youtube.svg" alt="youtube" width={32} height={23} className="mb-[15px]" />
             <p className="leading-1.3em">Email: Geosat@geosat.com</p>
             <p className="leading-1.3em">Phone: (+886) 6616-9999</p>
             <p className="leading-1.3em">
@@ -78,14 +81,14 @@ const Footer = () => {
                 if (route.children) {
                   return (
                     <li key={route.title} className="flex items-center justify-between">
-                      <DropdownMenu.Root onOpenChange={setOverlayOpen} open={isOverlayOpen}>
+                      <DropdownMenu.Root onOpenChange={setOverlayOpen} open={overlayOpen}>
                         <DropdownMenu.Trigger asChild>
                           <button
                             className={cn(navigationMenuTriggerStyle(), 'pb-1 pl-0', {
                               'font-bold underline': pathname.split('/')[1] === route.path.split('/')[1],
                             })}
                           >
-                            {route.title}
+                            {t(route.title)}
                           </button>
                         </DropdownMenu.Trigger>
                         <DropdownMenu.Portal>
@@ -122,7 +125,7 @@ const Footer = () => {
                           'font-bold underline': pathname === route.path,
                         })}
                       >
-                        {route.title}
+                        {t(route.title)}
                       </Link>
                     </li>
                     {index !== footerRoutes.length - 1 && <span className="mx-3 mt-1 mr-4 h-4 w-px bg-white" />}

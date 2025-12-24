@@ -72,7 +72,7 @@ function FormLabel({ className, ...props }: React.ComponentProps<typeof LabelPri
 function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
 
-  return <Slot data-slot="form-control" id={formItemId} aria-describedby={!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`} aria-invalid={!!error} {...props} />
+  return <Slot data-slot="form-control" id={formItemId} aria-describedby={error ? `${formDescriptionId} ${formMessageId}` : `${formDescriptionId}`} aria-invalid={!!error} {...props} />
 }
 
 function FormDescription({ className, ...props }: React.ComponentProps<'p'>) {

@@ -25,7 +25,7 @@ const PageSubtitle = (params: PageSubtitleProps) => {
           const isBold = word.startsWith('*') && word.endsWith('*')
           const text = isBold ? word.slice(1, -1) : word
           return (
-            <Fragment key={index}>
+            <Fragment key={text}>
               <span className={isBold ? 'font-medium' : 'font-light'}>{text}</span>
               {index < words.length - 1 && ' '}
             </Fragment>

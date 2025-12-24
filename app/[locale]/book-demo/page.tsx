@@ -131,8 +131,7 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span>
-                    PHONE
+                    <span className="text-red">*</span> PHONE
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Phone" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
@@ -147,8 +146,7 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span>
-                    EMAIL ADDRESS
+                    <span className="text-red">*</span> EMAIL ADDRESS
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Email Address" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
@@ -163,8 +161,7 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span>
-                    REQUIREMENTS
+                    <span className="text-red">*</span> REQUIREMENTS
                   </FormLabel>
                   <FormControl>
                     <Textarea placeholder="How do you want to use a drone solution?" className="h-37.5 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />

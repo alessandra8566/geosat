@@ -30,13 +30,13 @@ const productSpecs = [
 const Geosat15Ih = () => {
   return (
     <div>
-      <PageTitle title="*GEOSAT* *15* *IH*" subtitle="Longer endurance and wider range brings guarantee to border safety." downloadLink="/brochure/geosat-15-ih.pdf" />
+      <PageTitle data-testid="page-title" title="*GEOSAT* *15* *IH*" subtitle="Longer endurance and wider range brings guarantee to border safety." downloadLink="/brochure/geosat-15-ih.pdf" />
       <ProductMain src="/product05_main.png" specs={productSpecs} />
       <div className="flex gap-4 p-7.5">
-        {productsDescription.map((product, index) => (
-          <div key={index} className="w-full">
+        {productsDescription.map((product) => (
+          <div key={product.title} className="w-full">
             <PageSubtitle title={product.title} className="*:leading-1.1em px-0" />
-            <img className="w-full" src={product.url} alt={`geosat 15 ih ${index}`} />
+            <img className="w-full" src={product.url} alt={`geosat 15 ih ${product.title}`} />
             <p className="leading-1.1em pt-5 pl-2.5 text-xl font-light">{product.description}</p>
           </div>
         ))}

@@ -37,12 +37,12 @@ const PageTitle = (props: PageTitleProps) => {
         `,
       }}
     >
-      {words.map((word, index) => {
+      {words.map((word) => {
         const isBold = word.startsWith('*') && word.endsWith('*')
         const text = isBold ? word.slice(1, -1) : word
         return (
           <span
-            key={index}
+            key={text}
             className={cn('leading-0.9em 2xl:leading-1em 2xl:text-60 text-45 6xl:text-8xl tracking-tighter', {
               [isBold ? 'font-black' : 'font-light']: true,
             })}

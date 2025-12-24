@@ -11,7 +11,7 @@ const productSpecs = [
 const Geosat10Mr = () => {
   return (
     <div>
-      <PageTitle title="*GEOSAT* *10* *MR*" subtitle="MULTIPLE PAYLOAD FOR INFINITE POSSIBILITY" downloadLink="/" />
+      <PageTitle title="*GEOSAT* *10* *MR*" subtitle="MULTIPLE PAYLOAD FOR INFINITE POSSIBILITY" downloadLink="/brochure/geosat-10-mr.pdf" />
       <ProductMain src="/product03_main.png" specs={productSpecs} product="geosat10mr" size="lg" />
     </div>
   )

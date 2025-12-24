@@ -7,8 +7,6 @@ const useIsMobile = (breakpoint: number = BREAKPOINTS.sm) => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (typeof globalThis === 'undefined') return
-
     const mediaQueryList = globalThis.matchMedia(`(max-width: ${breakpoint - 1}px)`)
     const handleMediaQueryChange = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches)
 

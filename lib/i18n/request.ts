@@ -1,29 +1,27 @@
 import { getRequestConfig } from 'next-intl/server'
 import { routing } from './routing'
+import CommonZh from '@/messages/zh/common.json'
+import CommonEn from '@/messages/en/common.json'
 
-const namespaces = [
-  'common',
-  // 'about',
-  // 'book-demo',
-  // 'product',
-  // 'solutions'
-]
+const namespacesZh = {
+  common: CommonZh,
+}
+
+
+const namespaceEn = {
+  common: CommonEn,
+}
+
+const messages = {
+  zh: namespacesZh,
+  en: namespaceEn,
+}
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = (await requestLocale) ?? 'zh'
+  let locale = (await requestLocale) ?? 'en'
   if (!locale || !routing.locales.includes(locale as any)) locale = routing.defaultLocale
-  const messages = {}
-  for (const ns of namespaces) {
-    try {
-      const mod = await import(`../../messages/${locale}/${ns}.json`)
-      ;(messages as any)[ns] = mod.default
-    } catch (e) {
-      console.warn(`找不到語系檔: ${locale}/${ns}.json`)
-    }
-  }
-
   return {
     locale,
-    messages,
+    messages: messages[locale as keyof typeof messages],
   }
 })

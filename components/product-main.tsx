@@ -15,16 +15,11 @@ const productVariants = cva('grid grid-cols-2 3xl:absolute right-0 w-full 3xl:w-
   },
 })
 
-const sizeClasses = {
-  default: 'h-142',
-  lg: 'h-177',
-} as const
-
 const ProductMain = (params: ProductMainProps & VariantProps<typeof productVariants>) => {
-  const { specs, product, src, size = 'default' } = params
+  const { specs, product, src } = params
   return (
     <div className="relative">
-      <img src={src} alt="Main Image" width={1456} height={816} className={cn('z-0 w-full object-contain')} />
+      <img src={src} alt="Main Product" width={1456} height={816} className={cn('z-0 w-full object-contain')} />
       <div className={productVariants({ product })}>
         {specs?.map((spec, index) => (
           <div

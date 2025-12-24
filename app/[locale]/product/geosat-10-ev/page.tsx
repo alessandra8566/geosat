@@ -11,7 +11,7 @@ const productSpecs = [
 const Geosat10Ev = () => {
   return (
     <div>
-      <PageTitle title="*GEOSAT* *10* *EV*" subtitle="EFFICIENT MAPPING FOR LARGER COVERAGE" downloadLink="/" />
+      <PageTitle title="*GEOSAT* *10* *EV*" subtitle="EFFICIENT MAPPING FOR LARGER COVERAGE" downloadLink="/brochure/geosat-10-ev.pdf" />
       <ProductMain src="/product04_main.png" specs={productSpecs} product="geosat10ev" size="lg" />
     </div>
   )
