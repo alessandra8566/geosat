@@ -7,6 +7,6 @@ const ProductMainMock = ({ src, specs }: any) => (
       ))}
     </ul>
   </div>
-);
+)
 
-export default ProductMainMock;
+export default ProductMainMock

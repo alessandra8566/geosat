@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react"
-import About from "./page"
+import { render, screen } from '@testing-library/react'
+import About from './page'
 
 jest.mock('@/components/page-title')
 jest.mock('@/components/product-main')

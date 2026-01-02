@@ -38,17 +38,17 @@ const BookDemo = () => {
   return (
     <div>
       <PageTitle title="*BOOK* *DEMO*" />
-      <div className="relative">
-        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="h-152 w-full object-cover" />
-        <div className="absolute bottom-16 left-1/2 flex w-225 -translate-x-1/2 transform flex-col items-center text-[55px] leading-15 tracking-tight text-white">
-          <div className="w-full text-right font-light uppercase">DON&apos;T HESITATE TO EXPERIENCE -</div>
+      <div className="relative flex justify-center overflow-hidden">
+        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="min-w-170 w-full" />
+        <div className="absolute 2xl:bottom-[15%] bottom-[5%] left-1/10 2xl:left-1/2 flex 5xl:w-225 2xl:w-125 w-90 5xl:-translate-x-1/2 2xl:-translate-x-[43%] -translate-x-[5%] flex-col 2xl:items-center item-start title-b4 tracking-tight text-white">
+          <div className="w-full text-left 2xl:text-right font-light uppercase px-2">DON&apos;T HESITATE TO EXPERIENCE -</div>
           <div className="flex w-full items-center justify-start text-center">
             <span className="bg-main-text-gradient px-2 font-medium uppercase">BOOK A DEMO WITH US NOW !</span>
           </div>
         </div>
       </div>
       <div
-        className="flex flex-col items-center gap-2.5 overflow-hidden pt-19 pb-22.5"
+        className="flex flex-col items-center gap-2.5 overflow-hidden 5xl:pt-19 pt-12.5  pb-22.5 px-5 2xl:px-0"
         style={{
           background: `
             linear-gradient(180deg, rgba(4, 1, 1, 0.8) 100%, rgba(0, 0, 0, 0.8) 0%),
@@ -57,17 +57,18 @@ const BookDemo = () => {
         }}
       >
         <FormProvider {...form}>
-          <form className="flex w-3/4 flex-col items-center gap-10">
+          <form className="flex 2xl:w-3/4 w-full flex-col items-center 5xl:gap-10 gap-5 ">
             <FormField
               control={control}
               name="name"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span> NAME
+                  <FormLabel className="gap-1">
+                    <span className="text-red">*</span>
+                    <p className='title-e1'>NAME</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Name" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Name" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -78,9 +79,11 @@ const BookDemo = () => {
               name="company_name"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="text-[26px] font-light">COMPANY NAME</FormLabel>
+                  <FormLabel>
+                    <p className='title-e1'>COMPANY NAME</p>
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Company Name" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Company Name" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -91,9 +94,11 @@ const BookDemo = () => {
               name="country_region"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="text-[26px] font-light">COUNTRY / REGION</FormLabel>
+                  <FormLabel>
+                    <p className='title-e1'>COUNTRY / REGION</p>
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Country / Region" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Country / Region" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -104,9 +109,11 @@ const BookDemo = () => {
               name="street_address"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="text-[26px] font-light">STREET ADDRESS</FormLabel>
+                  <FormLabel>
+                    <p className='title-e1'>STREET ADDRESS</p>
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Street Address" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Street Address" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -117,9 +124,11 @@ const BookDemo = () => {
               name="city"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="text-[26px] font-light">CITY</FormLabel>
+                  <FormLabel>
+                    <p className='title-e1'>CITY</p>
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="City" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="City" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -130,11 +139,12 @@ const BookDemo = () => {
               name="phone"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span> PHONE
+                  <FormLabel className="gap-1">
+                    <span className="text-red">*</span>
+                    <p className='title-e1'>PHONE</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Phone" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Phone" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -145,11 +155,12 @@ const BookDemo = () => {
               name="email"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span> EMAIL ADDRESS
+                  <FormLabel className="gap-1">
+                    <span className="text-red">*</span>
+                    <p className='title-e1'>EMAIL ADDRESS</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Email Address" className="h-15 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Email Address" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -160,11 +171,12 @@ const BookDemo = () => {
               name="requirements"
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
-                  <FormLabel className="gap-1 text-[26px] font-light">
-                    <span className="text-red">*</span> REQUIREMENTS
+                  <FormLabel className="gap-1">
+                    <span className="text-red">*</span>
+                    <p className='title-e1'>REQUIREMENTS</p>
                   </FormLabel>
                   <FormControl>
-                    <Textarea placeholder="How do you want to use a drone solution?" className="h-37.5 rounded-sm! bg-[#ADADAD1A]! text-2xl! font-normal! placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Textarea placeholder="How do you want to use a drone solution?" className="h-37.5 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -172,7 +184,7 @@ const BookDemo = () => {
             />
             <Button
               type="button"
-              className="border-gradient-card hover:bg-hover-btn hover:border-gradient-btn-top text-26! mt-8 h-16.5 w-33 cursor-pointer rounded-none bg-[#24242499] p-5 font-light text-white focus-visible:border-none focus-visible:ring-0"
+              className="border-gradient-card hover:bg-hover-btn hover:border-gradient-btn-top title-e1 mt-8 h-auto! cursor-pointer rounded-none bg-[#24242499] p-5! font-light text-white focus-visible:border-none focus-visible:ring-0"
               onClick={handleSubmit(onSubmit)}
               disabled={mutation.isPending}
             >

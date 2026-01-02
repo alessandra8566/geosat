@@ -7,7 +7,6 @@ const namespacesZh = {
   common: CommonZh,
 }
 
-
 const namespaceEn = {
   common: CommonEn,
 }

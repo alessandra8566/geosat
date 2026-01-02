@@ -39,11 +39,11 @@ export default function Home() {
       <div className="flex w-full flex-wrap bg-white">
         <div className="3xl:w-106.5 3xl:max-w-1/3 3xl:order-0 order-2 w-full bg-contain bg-right bg-no-repeat" style={{ backgroundImage: "url('/index_bt01-2.png')" }}>
           <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-[200px] flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
-            <p className="-tracking-3 5xl:text-42 leading-1em text-32 font-bold">
-              SUPER DRONE FOR <br className="xl:hidden" />
+            <p className="title-c1">
+              SUPER DRONE FOR <br className="4xl:hidden" />
               NEXT OSIRIS
             </p>
-            <p className="leading-1.3em 5xl:text-xl text-lg">Next Generation Autonomous Inspection and S&R multirotor</p>
+            <p className="title-f">Next Generation Autonomous Inspection and S&R multirotor</p>
           </div>
         </div>
         <div className="bg-background 3xl:w-2/3 3xl:order-0 order-1 w-full grow">
@@ -58,19 +58,19 @@ export default function Home() {
             style={{ backgroundImage: "url('/index_bt02-2.png')" }}
           >
             <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-[200px] flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
-              <p className="-tracking-3 5xl:text-42 leading-1em text-4xl font-bold">PROPRIETARY GCS SOFTWARE</p>
-              <p className="leading-1.3em 5xl:text-xl text-lg">
+              <p className="title-c1">PROPRIETARY GCS SOFTWARE</p>
+              <p className="title-f">
                 Intuitive design for fast <br /> deployment in the field
               </p>
             </div>
           </div>
           <div className="bg-home-index-03 3xl:w-1/2 w-full bg-size-[60%_auto] bg-position-[right_-50%_top_70%] bg-no-repeat">
             <div className="bg-card 4xl:pb-10 3xl:py-5 flex h-full min-h-[200px] flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
-              <p className="-tracking-3 5xl:text-42 leading-1em text-4xl font-bold">
+              <p className="title-c1">
                 RECENT EVENTS <br />
                 HOT NEWS
               </p>
-              <p className="leading-1.3em 5xl:text-xl text-lg">
+              <p className="title-f">
                 Geosat presenting at CUAV <br /> with our drone family
               </p>
             </div>
@@ -80,18 +80,18 @@ export default function Home() {
       <PageTitle title="WHY CHOOSE *GEOSAT*" />
       <div className="flex w-full flex-col flex-wrap 2xl:flex-row">
         <div className="bg-card 5xl:gap-0 order-2 flex w-full flex-col justify-between gap-10 p-5 text-white/80 2xl:order-0 2xl:w-106.5 2xl:max-w-1/3">
-          <p className="leading-1.3em 5xl:text-xl text-lg">
+          <p className="title-f">
             Geosat has been a drone service company for more than 10 years, with the knowledge of actual operation, we design drones with exellent stability and high resolution camera for all kinds of
-            missions.{' '}
+            missions. missions.{' '}
           </p>
           <div className="5xl:gap-5 flex flex-col gap-3">
             <div>
-              <p className="leading-0.9em -tracking-3 bg-page-subtitle-gradient text-22 px-2.5 pt-2.5 pb-1 font-bold text-white">DRONE PIONEER</p>
-              <p className="leading-1em 5xl:leading-1.3em p-2.5 pt-1 text-lg font-light">Leading drone company in Taiwan with more than 10 years in drone application.</p>
+              <p className="title-e0 bg-page-subtitle-gradient px-2.5 pt-2.5 pb-1 text-white">DRONE PIONEER</p>
+              <p className="title-f p-2.5 pt-1 pr-0 font-light">Leading drone company in Taiwan with more than 10 years in drone application.</p>
             </div>
             <div>
-              <p className="leading-0.9em -tracking-3 bg-page-subtitle-gradient text-22 px-2.5 pt-2.5 pb-1 font-bold text-white">RAPID SUPPORT</p>
-              <p className="leading-1em 5xl:leading-1.3em p-2.5 pt-1 text-lg font-light">Offers quick support whenever there&apos;s a requirement</p>
+              <p className="title-e0 bg-page-subtitle-gradient px-2.5 pt-2.5 pb-1 text-white">RAPID SUPPORT</p>
+              <p className="title-f p-2.5 pt-1 pr-0 font-light">Offers quick support whenever there&apos;s a requirement</p>
             </div>
           </div>
         </div>
@@ -114,8 +114,8 @@ export default function Home() {
             >
               <div className="bg-card text-white hover:bg-white/70 hover:text-black">
                 <div className="4xl:pt-12.5 4xl:pb-5 flex flex-col gap-1 p-5 pb-2.5">
-                  <p className="leading-1em text-26 4xl:text-4xl font-black">{product.title}</p>
-                  <p className="leading-1.3em 4xl:text-xl text-lg">{product.description}</p>
+                  <p className="title-d">{product.title}</p>
+                  <p className="title-f">{product.description}</p>
                 </div>
                 <div className="relative">
                   <Image
@@ -126,7 +126,7 @@ export default function Home() {
                     quality={100}
                     className="h-full object-cover transition-opacity duration-300"
                   />
-                  <Link href={product.link} passHref>
+                  <div>
                     <div
                       className={cn(
                         'absolute top-10 left-5 flex items-center justify-center transition-opacity duration-100',
@@ -137,7 +137,7 @@ export default function Home() {
                         DETAIL INFO
                       </Button>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
             </Link>

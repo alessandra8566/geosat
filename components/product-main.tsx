@@ -7,7 +7,7 @@ const productVariants = cva('grid grid-cols-2 3xl:absolute right-0 w-full 3xl:w-
     product: {
       default: '3xl:top-1/2 3xl:-translate-y-[54%]',
       geosat10mr: '3xl:top-1/2 3xl:-translate-y-[10%]',
-      geosat10ev: '3xl:top-1/2 3xl:translate-y-[20%]',
+      geosat10ev: '3xl:top-1/2 3xl:-translate-y-[10%]',
     },
   },
   defaultVariants: {
@@ -18,8 +18,17 @@ const productVariants = cva('grid grid-cols-2 3xl:absolute right-0 w-full 3xl:w-
 const ProductMain = (params: ProductMainProps & VariantProps<typeof productVariants>) => {
   const { specs, product, src } = params
   return (
-    <div className="relative">
-      <img src={src} alt="Main Product" width={1456} height={816} className={cn('z-0 w-full object-contain')} />
+    <div className="relative overflow-hidden">
+      <img
+        src={src}
+        alt="Main Product"
+        width={1456}
+        height={816}
+        className={cn('z-0 object-contain 2xl:w-full', {
+          'min-w-167': product === 'default' || product === undefined,
+          'min-w-150': product === 'geosat10mr',
+        })}
+      />
       <div className={productVariants({ product })}>
         {specs?.map((spec, index) => (
           <div
@@ -30,8 +39,8 @@ const ProductMain = (params: ProductMainProps & VariantProps<typeof productVaria
               'bg-product-main-intro-l-gradient': index == 3,
             })}
           >
-            <p className="-tracking-3 5xl:text-42 text-3xl font-bold text-white/80">{spec.title}</p>
-            <p className="-tracking-3 5xl:text-xl 5xl:leading-6.5 leading-1em text-lg font-light text-white/80">{spec.description}</p>
+            <p className="title-c1 text-white/80">{spec.title}</p>
+            <p className="title-f text-white/80">{spec.description}</p>
           </div>
         ))}
       </div>

@@ -4,6 +4,6 @@ const PageTitleMock = ({ title, subtitle, downloadLink }: any) => (
     <p>{subtitle}</p>
     <a href={downloadLink}>Download</a>
   </div>
-);
+)
 
-export default PageTitleMock;
+export default PageTitleMock

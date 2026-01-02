@@ -7,9 +7,48 @@
   }
 }
 
+@layer components {
+  .title-b2 {
+    @apply leading-1em 5xl:text-50 3xl:text-4xl text-3xl tracking-tighter;
+  }
+  .title-b4 {
+    @apply leading-1em 5xl:text-55 -tracking-3 3xl:text-3xl text-26;
+  }
+  .title-c0 {
+    @apply leading-1em 5xl:text-42 3xl:text-32 text-26 font-light;
+  }
+  .title-c1 {
+    @apply -tracking-3 5xl:text-42 3xl:text-32 leading-1em text-3xl font-bold;
+  }
+  .title-d {
+    @apply leading-1em text-26 4xl:text-4xl font-bold;
+  }
+  .title-e0 {
+    @apply leading-1em 4xl:text-26 text-xl font-bold;
+  }
+  .title-e1 {
+    @apply leading-1em! 5xl:text-26! 4xl:text-xl! text-lg! font-light;
+  }
+  .title-f {
+    @apply leading-1em 5xl:text-xl text-lg;
+  }
+  .title-g {
+    @apply 5xl:leading-1.3em 5xl:text-3xl leading-1em text-lg;
+  }
+  .title-g-footer {
+    @apply leading-1em text-sm;
+  }
+  .title-h-footer {
+    @apply leading-1em 3xl:text-base 5xl:text-lg text-sm font-bold;
+  }
+}
+
 .carousel-scrollbar {
   &::-webkit-scrollbar {
-    width: 3px;
+    width: 0px;
+    @media (min-width: 672px) {
+      width: 3px;
+    }
   }
   &::-webkit-scrollbar-track {
     border-radius: 0px;

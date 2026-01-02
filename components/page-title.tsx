@@ -9,14 +9,6 @@ interface PageTitleProps {
   downloadLink?: string
 }
 
-/**
- * @typedef {object} PageTitleProps
- * @property {string} title - 頁面的主要標題文字。支援使用星號 (*) 包裹的單字來渲染粗體。
- * 範例: "My Amazing *New* Project"
- * @property {string} [subtitle] - 頁面的副標題文字 (目前未使用，但保留在介面中)。
- * @property {string} [className] - 額外的 Tailwind CSS 類別，應用於標題文字容器上。
- */
-
 const PageTitle = (props: PageTitleProps) => {
   const { title, className, subtitle, downloadLink } = props
   const words = title.split(' ')
@@ -43,7 +35,7 @@ const PageTitle = (props: PageTitleProps) => {
         return (
           <span
             key={text}
-            className={cn('leading-0.9em 2xl:leading-1em 2xl:text-60 text-45 6xl:text-8xl tracking-tighter', {
+            className={cn('leading-1em 2xl:text-60 text-45 6xl:text-8xl tracking-tighter', {
               [isBold ? 'font-black' : 'font-light']: true,
             })}
           >

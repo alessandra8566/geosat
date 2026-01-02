@@ -43,7 +43,7 @@ const footerRoutes = [
 ]
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex w-max items-center justify-center rounded-md p-2 pb-0 font-bold cursor-pointer text-lg leading-1em tracking-1 text-white hover:underline focus:underline focus-visible:outline-none'
+  'group inline-flex w-max items-center justify-center rounded-md p-2 pb-0 cursor-pointer title-h-footer text-white hover:underline focus:underline focus-visible:outline-none'
 )
 
 const Footer = () => {
@@ -62,20 +62,20 @@ const Footer = () => {
         `,
         }}
       >
-        <Link href="/" className="text-primary cursor-pointer text-xl font-bold tracking-tight">
+        <Link href="/">
           <Image src="/icons/logo_name.svg" alt="logo" width={120} height={46} />
         </Link>
         <div className="item-start 5xl:gap-0 5xl:items-end 5xl:flex-row flex flex-col justify-between gap-4">
-          <div className="tracking-1 text-sm text-white">
+          <div className="title-g-footer flex flex-col gap-1 text-white">
             <Image src="/icons/youtube.svg" alt="youtube" width={32} height={23} className="mb-[15px]" />
-            <p className="leading-1.3em">Email: Geosat@geosat.com</p>
-            <p className="leading-1.3em">Phone: (+886) 6616-9999</p>
-            <p className="leading-1.3em">
+            <p>Email: Geosat@geosat.com</p>
+            <p>Phone: (+886) 6616-9999</p>
+            <p>
               Copyright ©2025 GEOSAT CORPORATION. <br className="xl:hidden" />
               All Rights Reserved.
             </p>
           </div>
-          <div>
+          <div className="hidden 2xl:block">
             <ul className="flex flex-wrap">
               {footerRoutes.map((route, index) => {
                 if (route.children) {

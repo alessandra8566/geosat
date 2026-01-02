@@ -3,6 +3,7 @@ import Header from './header'
 import { usePathname } from 'next/navigation'
 import useIsMobile from '@/utils/hooks/use-is-mobile'
 import React from 'react'
+import { useLocale } from 'next-intl'
 
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
@@ -25,6 +26,7 @@ jest.mock('@/lib/i18n/routing', () => ({
 
 jest.mock('next-intl', () => ({
   useTranslations: () => (key: string) => key,
+  useLocale: jest.fn(),
 }))
 
 jest.mock('@/utils/hooks/use-is-mobile', () => jest.fn(() => false))
@@ -180,9 +182,9 @@ describe('Header Component', () => {
 
   // --- 邏輯測試 ---
   it('應該根據當前路徑正確標記選中的導航項目', () => {
-    ;(usePathname as jest.Mock).mockReturnValue('/solutions')
+    ;(useLocale as jest.Mock).mockReturnValue('en')
+    ;(usePathname as jest.Mock).mockReturnValue('/en/solutions')
     render(<Header />)
-    const solutionsLink = screen.getByText('nav.solutions')
-    expect(solutionsLink).toHaveClass('font-bold', 'underline')
+    expect(screen.getByText('nav.solutions')).toHaveClass('font-extrabold', 'underline')
   })
 })

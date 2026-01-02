@@ -17,9 +17,7 @@ const createTestQueryClient = () =>
 
 const renderWithClient = (ui: React.ReactElement) => {
   const queryClient = createTestQueryClient()
-  return render(
-    <QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>
-  )
+  return render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>)
 }
 
 describe('BookDemo Page', () => {

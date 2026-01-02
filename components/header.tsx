@@ -11,11 +11,11 @@ import { useState } from 'react'
 import { NavProps } from '@/utils/type'
 import useIsMobile from '@/utils/hooks/use-is-mobile'
 import { BREAKPOINTS } from '@/utils/constant'
-import { Menu, X } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { CircleX, Menu } from 'lucide-react'
+import { useTranslations, useLocale } from 'next-intl'
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 text-15 leading-1.1em py-2 font-light cursor-pointer text-white hover:underline hover:font-bold focus:underline focus:outline-none'
+  'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 text-15 leading-1em py-2 font-light cursor-pointer text-white hover:underline hover:font-bold focus:underline focus:outline-none'
 )
 
 const headerRoutes = [
@@ -54,6 +54,8 @@ const DesktopNav = (props: NavProps) => {
   const { isOverlayOpen, setOverlayOpen } = props
   const t = useTranslations('common')
   const pathname = usePathname()
+  const locale = useLocale()
+
   return (
     <div className="flex grow items-center justify-end gap-4">
       <ul className="flex">
@@ -65,7 +67,7 @@ const DesktopNav = (props: NavProps) => {
                   <DropdownMenu.Trigger asChild>
                     <button
                       className={cn(navigationMenuTriggerStyle(), 'uppercase', {
-                        'font-bold underline': pathname.split('/')[1] === route.path.split('/')[1],
+                        'font-extrabold underline': pathname.split('/')[2] === `/${locale}${route.path}`.split('/')[2],
                       })}
                     >
                       {t(route.title)}
@@ -79,7 +81,7 @@ const DesktopNav = (props: NavProps) => {
                           className={cn(
                             `hover:border-gradient-dropdown-item-hover relative flex cursor-pointer items-center border border-transparent bg-[#24242499] hover:bg-black/90 hover:text-white focus:outline-none`,
                             {
-                              'bg-hover-btn border-gradient-card border font-semibold text-white': pathname === product.path,
+                              'bg-hover-btn border-gradient-card border font-semibold text-white': pathname === `/${locale}${product.path}`,
                             }
                           )}
                         >
@@ -100,7 +102,7 @@ const DesktopNav = (props: NavProps) => {
               <Link
                 href={route.path}
                 className={cn(navigationMenuTriggerStyle(), 'uppercase', {
-                  'font-bold underline': pathname === route.path,
+                  'font-extrabold underline': route.path === '/' ? pathname === `/${locale}` : pathname === `/${locale}${route.path}`,
                 })}
               >
                 {t(route.title)}
@@ -122,29 +124,32 @@ const MobileNav = (props: NavProps) => {
   const { isOverlayOpen: isMenuOpen, setOverlayOpen: setMenuOpen } = props
   const t = useTranslations('common')
   const pathname = usePathname()
-
+  const locale = useLocale()
   return (
-    <div className="flex items-center">
+    <div className="flex items-center relative">
       {/* Hamburger/Close Button */}
       <Button data-testid="mobile-hamburger" variant="ghost" size="icon" onClick={() => setMenuOpen(!isMenuOpen)} className="cursor-pointer justify-end text-white hover:bg-transparent!">
-        {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        <Menu className="size-6" />
       </Button>
 
       {/* Mobile Menu Overlay */}
       <div
         data-testid="mobile-menu"
         className={cn(
-          'fixed inset-0 top-15 z-40 flex transform flex-col overflow-y-auto bg-black p-4 transition-transform duration-300 ease-in-out',
+          'fixed inset-y-0 right-0 z-40 flex transform flex-col overflow-y-auto w-3/4 bg-black/90 p-4 transition-transform duration-300 ease-in-out',
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
+        <div className='flex justify-end items-start h-25 border-gradient-mobile-menu'>
+          <CircleX className='size-6' onClick={() => setMenuOpen(false)} />
+        </div>
         {headerRoutes.map((route) => (
-          <div key={route.title} className="border-b border-gray-700">
+          <div key={route.title} className="border-gradient-mobile-menu">
             {route.children ? (
               <details className="py-3">
                 <summary
                   className={cn('flex cursor-pointer items-center justify-between py-2 text-lg text-white/90 uppercase hover:text-white', {
-                    'font-bold text-white': pathname.split('/')[1] === route.path.split('/')[1],
+                    'font-extrabold text-white': pathname.split('/')[2] === `/${locale}${route.path}`.split('/')[2],
                   })}
                 >
                   {t(route.title)}
@@ -154,7 +159,7 @@ const MobileNav = (props: NavProps) => {
                     <Link
                       key={product.title}
                       href={product.path}
-                      className={cn('block py-3 text-base text-white/70 transition-colors hover:text-white', { 'text-primary font-semibold underline': pathname === product.path })}
+                      className={cn('block py-3 text-base text-white/70 transition-colors hover:text-white', { 'font-semibold underline': pathname === `/${locale}${product.path}` })}
                       onClick={() => setMenuOpen(false)}
                     >
                       {product.title}
@@ -163,10 +168,11 @@ const MobileNav = (props: NavProps) => {
                 </div>
               </details>
             ) : (
-              // Simple Link for routes without children
               <Link
                 href={route.path}
-                className={cn('block py-5 text-lg text-white/90 uppercase transition-colors hover:text-white', { 'text-primary font-bold underline': pathname === route.path })}
+                className={cn('block py-5 text-lg text-white/90 uppercase transition-colors hover:text-white font-bold', {
+                  'font-extrabold underline': route.path === '/' ? pathname === `/${locale}` : pathname === `/${locale}${route.path}`,
+                })}
                 onClick={() => setMenuOpen(false)}
               >
                 {t(route.title)}
@@ -174,13 +180,15 @@ const MobileNav = (props: NavProps) => {
             )}
           </div>
         ))}
-
-        {/* Book Demo Button for Mobile */}
-        <div className="mt-6">
-          <Link href="/book-demo" className="w-full" onClick={() => setMenuOpen(false)}>
-            <Button size="lg" className="bg-primary tracking-1 w-full cursor-pointer py-3 text-white">
-              {t('nav.book-demo')}
-            </Button>
+        <div className="border-gradient-mobile-menu">
+          <Link
+            href="/book-demo"
+            className={cn('block py-5 text-lg text-white/90 uppercase transition-colors hover:text-white', {
+              'font-extrabold underline': pathname === `/${locale}/book-demo`,
+            })}
+            onClick={() => setMenuOpen(false)}
+          >
+            {t('nav.book-demo')}
           </Link>
         </div>
       </div>
