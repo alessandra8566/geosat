@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { Roboto_Flex, Roboto } from 'next/font/google'
@@ -5,6 +6,8 @@ import '@/styles/globals.css'
 import Navbar from '@/components/header'
 import Footer from '@/components/footer'
 import { Providers } from '@/components/providers'
+import { Toaster } from '@/components/ui/sonner'
+import { CircleCheckIcon, OctagonXIcon } from 'lucide-react'
 
 const robotoFontSemiCondensed = Roboto_Flex({
   subsets: ['latin'],
@@ -36,6 +39,21 @@ export default function RootLayout({
               {children}
               <Footer />
             </div>
+            <Toaster
+              position="top-center"
+              style={
+                {
+                  '--normal-bg': 'black',
+                  '--normal-text': '#FFFFFF80D9',
+                  '--normal-border': '#FFFFFF80',
+                  '--border-radius': 'var(--radius)',
+                } as React.CSSProperties
+              }
+              icons={{
+                success: <Image src="/icons/check_circle_success.svg" alt='SuccessIcon' width={16} height={16} />,
+                error: <Image src="/icons/check_circle_fail.svg" alt="ErrorIcon" width={16} height={16} />,
+              }}
+                />
           </Providers>
         </NextIntlClientProvider>
       </body>

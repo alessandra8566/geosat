@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { apiSendBookDemoEmail } from '@/lib/api/email'
 import { useMutation } from '@tanstack/react-query'
+import { toast } from 'sonner'
 
 const BookDemo = () => {
   const form = useForm<BookFormSchemaType>({
@@ -22,11 +23,11 @@ const BookDemo = () => {
   const mutation = useMutation({
     mutationFn: (data: BookFormSchemaType) => apiSendBookDemoEmail(data),
     onSuccess: () => {
-      alert('Your demo request has been sent successfully!')
+      toast.success('Submission completed.')
       form.reset()
     },
     onError: () => {
-      alert('There was an error sending your request. Please try again later.')
+      toast.error('Submission failed.')
     },
   })
 
@@ -39,16 +40,16 @@ const BookDemo = () => {
     <div>
       <PageTitle title="*BOOK* *DEMO*" />
       <div className="relative flex justify-center overflow-hidden">
-        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="min-w-170 w-full" />
-        <div className="absolute 2xl:bottom-[15%] bottom-[5%] left-1/10 2xl:left-1/2 flex 5xl:w-225 2xl:w-125 w-90 5xl:-translate-x-1/2 2xl:-translate-x-[43%] -translate-x-[5%] flex-col 2xl:items-center item-start title-b4 tracking-tight text-white">
-          <div className="w-full text-left 2xl:text-right font-light uppercase px-2">DON&apos;T HESITATE TO EXPERIENCE -</div>
+        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="w-full min-w-170" />
+        <div className="5xl:w-225 5xl:-translate-x-1/2 item-start title-b4 absolute bottom-[5%] left-1/10 flex w-90 -translate-x-[5%] flex-col tracking-tight text-white 2xl:bottom-[15%] 2xl:left-1/2 2xl:w-125 2xl:-translate-x-[43%] 2xl:items-center">
+          <div className="w-full px-2 text-left font-light uppercase 2xl:text-right">DON&apos;T HESITATE TO EXPERIENCE -</div>
           <div className="flex w-full items-center justify-start text-center">
             <span className="bg-main-text-gradient px-2 font-medium uppercase">BOOK A DEMO WITH US NOW !</span>
           </div>
         </div>
       </div>
       <div
-        className="flex flex-col items-center gap-2.5 overflow-hidden 5xl:pt-19 pt-12.5  pb-22.5 px-5 2xl:px-0"
+        className="5xl:pt-19 flex flex-col items-center gap-2.5 overflow-hidden px-5 pt-12.5 pb-22.5 2xl:px-0"
         style={{
           background: `
             linear-gradient(180deg, rgba(4, 1, 1, 0.8) 100%, rgba(0, 0, 0, 0.8) 0%),
@@ -57,7 +58,7 @@ const BookDemo = () => {
         }}
       >
         <FormProvider {...form}>
-          <form className="flex 2xl:w-3/4 w-full flex-col items-center 5xl:gap-10 gap-5 ">
+          <form className="5xl:gap-10 flex w-full flex-col items-center gap-5 2xl:w-3/4">
             <FormField
               control={control}
               name="name"
@@ -65,10 +66,10 @@ const BookDemo = () => {
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1">
                     <span className="text-red">*</span>
-                    <p className='title-e1'>NAME</p>
+                    <p className="title-e1">NAME</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Name" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Name" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -80,10 +81,10 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel>
-                    <p className='title-e1'>COMPANY NAME</p>
+                    <p className="title-e1">COMPANY NAME</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Company Name" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Company Name" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -95,10 +96,10 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel>
-                    <p className='title-e1'>COUNTRY / REGION</p>
+                    <p className="title-e1">COUNTRY / REGION</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Country / Region" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Country / Region" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -110,10 +111,10 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel>
-                    <p className='title-e1'>STREET ADDRESS</p>
+                    <p className="title-e1">STREET ADDRESS</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Street Address" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Street Address" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -125,10 +126,10 @@ const BookDemo = () => {
               render={({ field, fieldState: { error } }) => (
                 <FormItem className="w-full px-5">
                   <FormLabel>
-                    <p className='title-e1'>CITY</p>
+                    <p className="title-e1">CITY</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="City" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="City" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -141,10 +142,10 @@ const BookDemo = () => {
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1">
                     <span className="text-red">*</span>
-                    <p className='title-e1'>PHONE</p>
+                    <p className="title-e1">PHONE</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Phone" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Phone" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -157,10 +158,10 @@ const BookDemo = () => {
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1">
                     <span className="text-red">*</span>
-                    <p className='title-e1'>EMAIL ADDRESS</p>
+                    <p className="title-e1">EMAIL ADDRESS</p>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Email Address" className="5xl:h-15 h-11 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Input placeholder="Email Address" className="5xl:h-15 title-e1 h-11 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>
@@ -173,10 +174,10 @@ const BookDemo = () => {
                 <FormItem className="w-full px-5">
                   <FormLabel className="gap-1">
                     <span className="text-red">*</span>
-                    <p className='title-e1'>REQUIREMENTS</p>
+                    <p className="title-e1">REQUIREMENTS</p>
                   </FormLabel>
                   <FormControl>
-                    <Textarea placeholder="How do you want to use a drone solution?" className="h-37.5 rounded-sm! bg-[#ADADAD1A]! title-e1 placeholder:text-[#FFFFFF40]!" {...field} />
+                    <Textarea placeholder="How do you want to use a drone solution?" className="title-e1 h-37.5 rounded-sm! bg-[#ADADAD1A]! placeholder:text-[#FFFFFF40]!" {...field} />
                   </FormControl>
                   {error && <p className="text-red text-sm">{error.message}</p>}
                 </FormItem>

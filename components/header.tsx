@@ -126,7 +126,7 @@ const MobileNav = (props: NavProps) => {
   const pathname = usePathname()
   const locale = useLocale()
   return (
-    <div className="flex items-center relative">
+    <div className="relative flex items-center">
       {/* Hamburger/Close Button */}
       <Button data-testid="mobile-hamburger" variant="ghost" size="icon" onClick={() => setMenuOpen(!isMenuOpen)} className="cursor-pointer justify-end text-white hover:bg-transparent!">
         <Menu className="size-6" />
@@ -136,12 +136,12 @@ const MobileNav = (props: NavProps) => {
       <div
         data-testid="mobile-menu"
         className={cn(
-          'fixed inset-y-0 right-0 z-40 flex transform flex-col overflow-y-auto w-3/4 bg-black/90 p-4 transition-transform duration-300 ease-in-out',
+          'fixed inset-y-0 right-0 z-40 flex w-3/4 transform flex-col overflow-y-auto bg-black/90 p-4 transition-transform duration-300 ease-in-out',
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className='flex justify-end items-start h-25 border-gradient-mobile-menu'>
-          <CircleX className='size-6' onClick={() => setMenuOpen(false)} />
+        <div className="border-gradient-mobile-menu flex h-25 items-start justify-end">
+          <CircleX className="size-6" onClick={() => setMenuOpen(false)} />
         </div>
         {headerRoutes.map((route) => (
           <div key={route.title} className="border-gradient-mobile-menu">
@@ -170,7 +170,7 @@ const MobileNav = (props: NavProps) => {
             ) : (
               <Link
                 href={route.path}
-                className={cn('block py-5 text-lg text-white/90 uppercase transition-colors hover:text-white font-bold', {
+                className={cn('block py-5 text-lg font-bold text-white/90 uppercase transition-colors hover:text-white', {
                   'font-extrabold underline': route.path === '/' ? pathname === `/${locale}` : pathname === `/${locale}${route.path}`,
                 })}
                 onClick={() => setMenuOpen(false)}

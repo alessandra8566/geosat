@@ -86,7 +86,7 @@
   --gradient-border-btn-top: linear-gradient(59.57deg, var(--color-black) 13.21%, var(--color-red) 52%, var(--color-black) 90.06%);
   --gradient-border-dropdown-item-hover: linear-gradient(90deg, var(--color-black) 0%, #e61717 50%, var(--color-black) 100%);
   --gradient-border-download-btn: linear-gradient(132.29deg, rgba(0, 0, 0, 0.8) 4.06%, rgba(179, 19, 19, 0.8) 83.16%);
-  --gradient-border-mobile-menu: linear-gradient(90deg, rgba(173, 173, 173, 0.1) 0%, #B31313 100%);
+  --gradient-border-mobile-menu: linear-gradient(90deg, rgba(173, 173, 173, 0.1) 0%, #b31313 100%);
 
   --background-color-card: var(--card);
 }
