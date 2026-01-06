@@ -7,7 +7,6 @@ import Navbar from '@/components/header'
 import Footer from '@/components/footer'
 import { Providers } from '@/components/providers'
 import { Toaster } from '@/components/ui/sonner'
-import { CircleCheckIcon, OctagonXIcon } from 'lucide-react'
 
 const robotoFontSemiCondensed = Roboto_Flex({
   subsets: ['latin'],

@@ -3,6 +3,7 @@ import About from './page'
 
 jest.mock('@/components/page-title')
 jest.mock('@/components/product-main')
+jest.mock('@/utils/hooks/use-is-mobile', () => jest.fn(() => false))
 
 describe('About Page', () => {
   it('應該正確渲染頁面大標題', () => {

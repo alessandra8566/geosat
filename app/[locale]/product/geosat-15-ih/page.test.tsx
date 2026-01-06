@@ -3,6 +3,7 @@ import Geosat15Ih from './page'
 
 jest.mock('@/components/page-title')
 jest.mock('@/components/product-main')
+jest.mock('@/utils/hooks/use-is-mobile', () => jest.fn(() => false))
 
 describe('Geosat15Ih Page', () => {
   it('應該正確渲染頁面標題、產品主體與描述區塊', () => {
