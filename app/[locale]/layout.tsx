@@ -49,10 +49,10 @@ export default function RootLayout({
                 } as React.CSSProperties
               }
               icons={{
-                success: <Image src="/icons/check_circle_success.svg" alt='SuccessIcon' width={16} height={16} />,
+                success: <Image src="/icons/check_circle_success.svg" alt="SuccessIcon" width={16} height={16} />,
                 error: <Image src="/icons/check_circle_fail.svg" alt="ErrorIcon" width={16} height={16} />,
               }}
-                />
+            />
           </Providers>
         </NextIntlClientProvider>
       </body>
