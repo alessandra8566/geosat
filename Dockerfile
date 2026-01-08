@@ -1,21 +1,21 @@
 # Step 1: Install dependencies only when needed
-# FROM harbor.wistron.com/base_image/node:20-alpine AS deps
-FROM node:20-alpine AS deps
+FROM harbor.wistron.com/base_image/node:20-alpine AS deps
+# FROM node:20-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci
 
 # Step 2: Build the application
-# FROM harbor.wistron.com/base_image/node:20-alpine AS builder
-FROM node:20-alpine AS builder
+FROM harbor.wistron.com/base_image/node:20-alpine AS builder
+# FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
 # Step 3: Run the application
-# FROM harbor.wistron.com/base_image/node:20-alpine AS runner
-FROM node:20-alpine AS runner
+FROM harbor.wistron.com/base_image/node:20-alpine AS runner
+# FROM node:20-alpine AS runner
 WORKDIR /app
 
 COPY --from=builder /app/public ./public

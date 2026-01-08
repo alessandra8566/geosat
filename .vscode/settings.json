@@ -1,5 +1,25 @@
 {
-  "cSpell.words": ["ABOUTS", "ATAK", "bookdemo", "btnlink", "CUAV", "exellent", "extralight", "Geosat", "Jingwei", "multirotor", "nocompatible", "oklch", "rgba", "roboto", "scannerwork", "wdth"],
+  "cSpell.words": [
+    "ABOUTS",
+    "ATAK",
+    "bookdemo",
+    "btnlink",
+    "CUAV",
+    "Dsonar",
+    "exellent",
+    "extralight",
+    "Geosat",
+    "Jingwei",
+    "multirotor",
+    "nocompatible",
+    "oklch",
+    "qualitygate",
+    "Qube",
+    "rgba",
+    "roboto",
+    "scannerwork",
+    "wdth"
+  ],
   "sonarlint.connectedMode.project": {
     "connectionId": "Geosat SonarQube",
     "projectKey": "Geosat"

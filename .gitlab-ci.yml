@@ -1,5 +1,9 @@
 stages:
+  - prepare
+  - install
+  - test
   - security_scan
+  - build_qas
 
 variables:
   IMAGE_NAME: geosat
@@ -16,6 +20,71 @@ cache:
 .general:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
+
+prepare:
+  stage: prepare
+  extends: .general
+  image: harbor.wistron.com/base_image/docker:28
+  tags:
+    - k8s-runners
+  script:
+    - printenv | sort
+
+install_dependencies:
+  stage: install
+  tags:
+    - k8s-runners
+  image: harbor.wistron.com/base_image/node:20-alpine
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+  only:
+    - main
+
+unit_test:
+  stage: test
+  tags:
+    - k8s-runners
+  needs:
+    - job: install_dependencies
+      artifacts: true
+  image: harbor.wistron.com/base_image/node:20-alpine
+  script:
+    - npm run lint
+
+code_scan:
+  stage: security_scan
+  tags:
+    - k8s-runners
+  needs:
+    - job: install_dependencies
+      artifacts: true
+  image: ${HARBOR_BASE_IMAGE_PATH}/sonar-scanner-cli:4
+  before_script:
+    # Validate required variables
+    - |
+      if [ -z "$SONAR_URL" ] || [ -z "$SONAR_TOKEN" ]; then
+        echo "❌ Missing required SonarQube variables: SONAR_URL and/or SONAR_TOKEN"
+        exit 1
+      fi
+      echo "✅ SonarQube variables are set"
+  script:
+    - echo "🔍 Running SonarQube analysis for NextJs project..."
+    - |
+      sonar-scanner \
+        -Dsonar.projectKey="${CI_PROJECT_PATH_SLUG}" \
+        -Dsonar.projectName="${CI_PROJECT_NAME}" \
+        -Dsonar.host.url="${SONAR_URL}" \
+        -Dsonar.login="${SONAR_TOKEN}" \
+        -Dsonar.qualitygate.wait=true \
+        -Dsonar.sources=. \
+        -Dsonar.exclusions='node_modules/**/*,.next/**,public/**' \
+        -Dsonar.test.inclusions='**/*.test.ts,**/*.test.tsx' \
+        -Dsonar.coverage.exclusions='**/*.test.{tsx,ts},node_modules/**,.next/**,coverage/**,components/ui/**' \
+        -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
+  allow_failure: true
 
 dependency_scan:
   stage: security_scan
@@ -37,3 +106,32 @@ dependency_scan:
     paths: ['scan-result.json']
     when: always
   allow_failure: true
+
+build_qas:
+  stage: build_qas
+  # 繼承通用配置
+  extends: .general
+  image: harbor.wistron.com/base_image/docker:28
+  # 配置 gitlab-runner
+  tags:
+    - k8s-runners
+  # 依賴 prepare 的 env 配置
+  needs:
+    - job: install_dependencies
+      artifacts: true
+    - job: unit_test
+      artifacts: true
+    - job: code_scan
+      artifacts: true
+    - job: dependency_scan
+      artifacts: true
+  before_script:
+    - echo "$HARBOR_REGISTRY_PASSWORD" | docker login "$HARBOR_REGISTRY" -u "$HARBOR_REGISTRY_USER" --password-stdin
+  script:
+    - docker build -t ${IMAGE_PATH}:${IMAGE_TAG} -t ${IMAGE_PATH}:latest .
+    - echo "✅ Docker build completed"
+    - docker push "$IMAGE_PATH:latest"
+    - docker push ${IMAGE_PATH}:${IMAGE_TAG}
+    - cosign sign --key ${cosignKey} -a author="${GITLAB_USER_NAME}" -a mail="${GITLAB_USER_EMAIL}" -a projectURL="${CI_PROJECT_URL}" -a pipelineURL=${CI_PIPELINE_URL} ${IMAGE_PATH}:latest
+    - cosign sign --key ${cosignKey} -a author="${GITLAB_USER_NAME}" -a mail="${GITLAB_USER_EMAIL}" -a projectURL="${CI_PROJECT_URL}" -a pipelineURL=$CI_PIPELINE_URL ${IMAGE_PATH}:${IMAGE_TAG}
+    - echo "✅ Docker push completed"

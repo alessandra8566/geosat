@@ -17,10 +17,10 @@ const messages = {
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = (await requestLocale) ?? 'en'
-  if (!locale || !routing.locales.includes(locale as any)) locale = routing.defaultLocale
+  let locale = ((await requestLocale) ?? 'en' ) as typeof routing.locales[number]
+  if (!locale || !routing.locales.includes(locale)) locale = routing.defaultLocale
   return {
     locale,
-    messages: messages[locale as keyof typeof messages],
+    messages: messages[locale],
   }
 })

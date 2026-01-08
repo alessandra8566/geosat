@@ -10,7 +10,16 @@ jest.mock('next/navigation', () => ({
 }))
 
 jest.mock('@/lib/i18n/routing', () => ({
-  Link: ({ children, href, onClick, className }: any) => (
+  Link: ({
+    children,
+    href,
+    onClick,
+    className,
+  }: React.PropsWithChildren<{
+    href: string
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+    className?: string
+  }>) => (
     <a
       href={href}
       onClick={(e) => {
