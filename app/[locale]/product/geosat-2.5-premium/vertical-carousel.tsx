@@ -41,7 +41,7 @@ const content: {
     description:
       'When reaching the boundary of the self-defined or official defined fly zone, our software offers immediate warning to the pilot and swift control of the drone to avoid any possible danger. ',
     content: (
-      <div className="flex h-full w-full overflow-hidden text-white">
+      <div className="flex h-full w-full items-center justify-center overflow-hidden text-white">
         <Image
           src="/product_image06.png"
           width={700}

@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { apiSendBookDemoEmail } from '@/lib/api/email'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner'
+import Image from 'next/image'
 
 const BookDemo = () => {
   const form = useForm<BookFormSchemaType>({
@@ -40,7 +41,7 @@ const BookDemo = () => {
     <div>
       <PageTitle title="*BOOK* *DEMO*" />
       <div className="relative flex justify-center overflow-hidden">
-        <img src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} className="w-full min-w-170" />
+        <Image src="/bookdemo_main.png" alt="Book Demo Main" width={1440} height={705} quality={100} className="w-full min-w-170" />
         <div className="5xl:w-225 5xl:-translate-x-1/2 item-start title-b4 absolute bottom-[5%] left-1/10 flex w-90 -translate-x-[5%] flex-col tracking-tight text-white 2xl:bottom-[15%] 2xl:left-1/2 2xl:w-125 2xl:-translate-x-[43%] 2xl:items-center">
           <div className="w-full px-2 text-left font-light uppercase 2xl:text-right">DON&apos;T HESITATE TO EXPERIENCE -</div>
           <div className="flex w-full items-center justify-start text-center">

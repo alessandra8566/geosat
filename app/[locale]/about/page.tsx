@@ -4,6 +4,7 @@ import PageTitle from '@/components/page-title'
 import PageSubtitle from '@/components/page-subtitle'
 import useIsMobile from '@/utils/hooks/use-is-mobile'
 import { BREAKPOINTS } from '@/utils/constant'
+import Image from 'next/image'
 
 const timelines = [
   {
@@ -46,7 +47,7 @@ const About = () => {
     <div>
       <PageTitle title="*ABOUTS*" />
       <div className="relative flex justify-end overflow-hidden">
-        <img src="/about_main_01.png" alt="About Main" width={1440} height={705} className="w-full min-w-200" />
+        <Image src="/about_main_01.png" alt="About Main" width={1440} height={705} quality={100} className="w-full min-w-200" />
         <div className="title-b4 5xl:w-255 5xl:-translate-x-1/2 absolute bottom-[5%] left-1/10 flex w-75 -translate-x-[5%] flex-col items-start tracking-tight text-white 2xl:bottom-[15%] 2xl:left-1/2 2xl:w-125 2xl:-translate-x-[43%] 2xl:items-center">
           <div className="w-full px-2 text-left font-light uppercase">WE SOAR IN THE SKY</div>
           <div className="flex w-3/4 items-center justify-center 2xl:w-full">

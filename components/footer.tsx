@@ -63,11 +63,11 @@ const Footer = () => {
         }}
       >
         <Link href="/">
-          <Image src="/icons/logo_name.svg" alt="logo" width={120} height={46} />
+          <Image src="/icons/logo_name.svg" alt="logo" width={120} height={46} quality={100} />
         </Link>
         <div className="item-start 5xl:gap-0 5xl:items-end 5xl:flex-row flex flex-col justify-between gap-4">
           <div className="title-g-footer flex flex-col gap-1 text-white">
-            <Image src="/icons/youtube.svg" alt="youtube" width={32} height={23} className="mb-[15px]" />
+            <Image src="/icons/youtube.svg" alt="youtube" width={32} height={23} quality={100} className="mb-3.75" />
             <p>Email: Geosat@geosat.com</p>
             <p>Phone: (+886) 6616-9999</p>
             <p>

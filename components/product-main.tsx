@@ -1,6 +1,7 @@
 import { cn } from '@/utils/shadcn'
 import { ProductMainProps } from '@/utils/type'
 import { cva, type VariantProps } from 'class-variance-authority'
+import Image from 'next/image'
 
 const productVariants = cva('grid grid-cols-2 3xl:absolute right-0 w-full 3xl:w-90 5xl:w-120 6xl:w-155 7xl:w-167.5 z-2 ', {
   variants: {
@@ -19,11 +20,12 @@ const ProductMain = (params: ProductMainProps & VariantProps<typeof productVaria
   const { specs, product, src } = params
   return (
     <div className="relative overflow-hidden">
-      <img
+      <Image
         src={src}
         alt="Main Product"
         width={1456}
         height={816}
+        quality={100}
         className={cn('z-0 object-contain 2xl:w-full', {
           'min-w-167': product === 'default' || product === undefined,
           'min-w-150': product === 'geosat10mr',

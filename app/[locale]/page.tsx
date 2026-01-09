@@ -35,19 +35,19 @@ export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState<number>()
   return (
     <div className="flex flex-col justify-start">
-      <PageTitle title="DISCOVERY YOUR *DRONE*" />
+      <PageTitle title="DISCOVER YOUR *DRONE*" />
       <div className="flex w-full flex-wrap bg-white">
         <div className="3xl:w-106.5 3xl:max-w-1/3 3xl:order-0 order-2 w-full bg-contain bg-right bg-no-repeat" style={{ backgroundImage: "url('/index_bt01-2.png')" }}>
           <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-50 flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
             <p className="title-c1">
               SUPER DRONE FOR <br className="4xl:hidden" />
-              NEXT OSIRIS
+              NEXT GENERATION
             </p>
             <p className="title-f">Next Generation Autonomous Inspection and S&R multirotor</p>
           </div>
         </div>
         <div className="bg-background 3xl:w-2/3 3xl:order-0 order-1 w-full grow">
-          <img src="/index_main_01.png" alt="Home Main" width={1014} height={540} className="w-full object-cover" />
+          <Image src="/index_main_01.png" alt="Home Main" width={1014} height={540} quality={100} className="w-full object-cover" />
         </div>
         <div className="5xl:h-75 3xl:w-106.5 3xl:max-w-1/3 3xl:order-0 3xl:h-58 relative order-3 flex h-auto w-full justify-center overflow-hidden border-b border-black">
           <Image src="/index_main02.png" alt="Side Image" width={3840} height={5760} quality={100} className="w-full object-cover" />
@@ -96,7 +96,7 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full grow 2xl:w-2/3">
-          <img src="/index03.png" alt="Home Main2" width={1014} height={495} className="h-75 w-full object-cover 2xl:h-125" />
+          <Image src="/index03.png" alt="Home Main2" width={1014} height={495} quality={100} className="h-75 w-full object-cover 2xl:h-125" />
         </div>
       </div>
       <PageTitle title="*EXCELLENCE* PRODUCTS" />

@@ -204,7 +204,7 @@ const Navbar = () => {
       {overlayOpen && <button data-testid="header-overlay" className="fixed inset-0 z-40 bg-black/50" aria-label="Close menu" onClick={() => setOverlayOpen(false)} />}
       <header className="border-gradient-header-bottom 3xl:h-20 4xl:px-14 3xl:px-7.5 3xl:py-2 sticky top-0 z-50 flex h-15 items-center justify-between bg-black px-4.5 py-5">
         <Link href="/">
-          <Image src="/icons/logo.svg" alt="logo" width={95} height={29} className="4xl:w-[95px] w-20.5" />
+          <Image src="/icons/logo.svg" alt="logo" width={95} height={29} quality={100} className="4xl:w-23.75 w-20.5" />
         </Link>
         {isMobile ? <MobileNav isOverlayOpen={overlayOpen} setOverlayOpen={setOverlayOpen} /> : <DesktopNav isOverlayOpen={overlayOpen} setOverlayOpen={setOverlayOpen} />}
       </header>

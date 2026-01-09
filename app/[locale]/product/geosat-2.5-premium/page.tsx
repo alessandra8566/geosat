@@ -55,7 +55,7 @@ const GeosatPremium = () => {
                   right decision instantly.
                 </p>
               </div>
-              <Image src="/product_image01.png" alt="Gimbal RGB Imaging" width={300} height={379} className="w-full object-cover" />
+              <Image src="/product_image01.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="w-full object-cover" />
             </div>
             <div className="bg-card flex flex-col justify-between">
               <div className="flex flex-col gap-2.5 p-4 2xl:order-2">
@@ -67,7 +67,7 @@ const GeosatPremium = () => {
                   right decision instantly.
                 </p>
               </div>
-              <Image src="/product_image02-2.png" alt="Gimbal RGB Imaging" width={300} height={379} className="w-full object-cover 2xl:order-1" />
+              <Image src="/product_image02-2.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="w-full object-cover 2xl:order-1" />
             </div>
             <div className="bg-card flex flex-col justify-between">
               <div className="bg-card flex flex-col gap-2.5 p-4">
@@ -80,7 +80,7 @@ const GeosatPremium = () => {
                   right decision instantly.
                 </p>
               </div>
-              <Image src="/product_image03.png" alt="Gimbal RGB Imaging" width={300} height={379} className="w-full object-cover" />
+              <Image src="/product_image03.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="w-full object-cover" />
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ const GeosatPremium = () => {
         >
           <div className="6xl:max-w-5/6 6xl:gap-7.5 flex flex-col gap-0 2xl:flex-row 2xl:gap-5">
             <div className="bg-card flex flex-1 flex-col 2xl:bg-transparent">
-              <Image src="/product_image07.png" alt="Gimbal RGB Imaging" width={300} height={379} className="order-2 w-full object-cover 2xl:order-1" />
+              <Image src="/product_image07.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="order-2 w-full object-cover 2xl:order-1" />
               <div className="order-1 p-5 2xl:order-2 2xl:pt-7.5 2xl:pr-7.5 2xl:pl-1">
                 <p className="title-d">GPS DENIED FLYING</p>
                 <p className="title-f pt-3 text-white/80">
@@ -109,7 +109,7 @@ const GeosatPremium = () => {
               </div>
             </div>
             <div className="bg-card flex flex-1 flex-col 2xl:bg-transparent">
-              <Image src="/product_image08.jpg" alt="Gimbal RGB Imaging" width={300} height={379} className="order-2 w-full object-cover 2xl:order-1" />
+              <Image src="/product_image08.jpg" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="order-2 w-full object-cover 2xl:order-1" />
               <div className="order-1 p-5 2xl:order-2 2xl:pt-7.5 2xl:pr-7.5 2xl:pl-1">
                 <p className="title-d">OBSTACLE AVOIDANCE</p>
                 <p className="title-f pt-3 text-white/80">

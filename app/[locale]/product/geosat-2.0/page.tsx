@@ -37,7 +37,7 @@ const Geosat2 = () => {
                   right decision instantly.
                 </p>
               </div>
-              <Image src="/product_image01.png" alt="Gimbal RGB Imaging" width={300} height={379} className="w-full object-cover" />
+              <Image src="/product_image01.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="w-full object-cover" />
             </div>
             <div className="bg-card flex flex-col justify-between">
               <div className="flex flex-col gap-2.5 p-4 2xl:order-2">
@@ -49,7 +49,7 @@ const Geosat2 = () => {
                   right decision instantly.
                 </p>
               </div>
-              <Image src="/product_image02-3.png" alt="Gimbal RGB Imaging" width={300} height={379} className="w-full object-cover 2xl:order-1" />
+              <Image src="/product_image02-3.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="w-full object-cover 2xl:order-1" />
             </div>
             <div className="bg-card flex flex-col justify-between">
               <div className="bg-card flex flex-col gap-2.5 p-4">
@@ -62,7 +62,7 @@ const Geosat2 = () => {
                   right decision instantly.
                 </p>
               </div>
-              <Image src="/product_image03-3.png" alt="Gimbal RGB Imaging" width={300} height={379} className="w-full object-cover" />
+              <Image src="/product_image03-3.png" alt="Gimbal RGB Imaging" width={300} height={379} quality={100} className="w-full object-cover" />
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ const Geosat2 = () => {
           }}
         >
           <div className="6xl:w-full bg-card flex w-full flex-col items-center justify-center 2xl:w-151 2xl:bg-transparent">
-            <Image src="/product2_image01.png" width={920} height={595} alt="Autonomous Mission" className="order-2 2xl:order-1" />
+            <Image src="/product2_image01.png" width={920} height={595} quality={100} alt="Autonomous Mission" className="order-2 2xl:order-1" />
             <div className="order-1 max-w-230 p-5 pb-2.5 2xl:order-2 2xl:pt-7.5 2xl:pr-7.5 2xl:pb-5 2xl:pl-1">
               <p className="title-d uppercase">Mission Planning</p>
               <p className="title-f pt-3">
