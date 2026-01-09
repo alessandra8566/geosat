@@ -1,5 +1,6 @@
 import { cn } from '@/utils/shadcn'
 import { Fragment } from 'react/jsx-runtime'
+import { v4 as uuid } from 'uuid'
 
 interface PageSubtitleProps {
   title: string
@@ -18,12 +19,13 @@ interface PageSubtitleProps {
 const PageSubtitle = (params: PageSubtitleProps) => {
   const { className, title, border = true } = params
   const words = title.split(' ')
+
   return (
     <div className={cn('3xl:px-7.5 5xl:pt-12.5 group w-full px-4 pt-5', { 'border-gradient-subtitle': border }, className)}>
       <div className="border-primary title-b2 flex min-h-10 flex-wrap items-end gap-x-2 border-l-10 pl-2.5 font-light uppercase 2xl:min-h-12.5">
-        {words.map((word, index) => {
+        {words.map((word) => {
           if (word === '[br]') {
-            return <br key={`br-${index}`} className="2xl:hidden" />
+            return <br key={`br-${uuid()}`} className="2xl:hidden" />
           }
           const isBold = word.startsWith('*') && word.endsWith('*')
           const text = isBold ? word.slice(1, -1) : word

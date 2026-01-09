@@ -4,17 +4,7 @@ import nextTs from 'eslint-config-next/typescript'
 import prettierConfig from 'eslint-config-prettier'
 
 const eslintConfig = defineConfig([
-    globalIgnores([
-    '.next/**',
-    'out/**',
-    'build/**',
-    'next-env.d.ts',
-    '**/public/**',
-    '**/static/**',
-    '**/coverage/**',
-    '**/*.test.{js,jsx,ts,tsx}',
-    '**/__mocks__/**',
-  ]),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', '**/public/**', '**/static/**', '**/coverage/**', '**/*.test.{js,jsx,ts,tsx}', '**/__mocks__/**']),
   ...nextVitals,
   ...nextTs,
   {

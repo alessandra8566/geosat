@@ -38,7 +38,7 @@ export default function Home() {
       <PageTitle title="DISCOVERY YOUR *DRONE*" />
       <div className="flex w-full flex-wrap bg-white">
         <div className="3xl:w-106.5 3xl:max-w-1/3 3xl:order-0 order-2 w-full bg-contain bg-right bg-no-repeat" style={{ backgroundImage: "url('/index_bt01-2.png')" }}>
-          <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-[200px] flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
+          <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-50 flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
             <p className="title-c1">
               SUPER DRONE FOR <br className="4xl:hidden" />
               NEXT OSIRIS
@@ -57,7 +57,7 @@ export default function Home() {
             className="bg-content 3xl:w-1/2 3xl:border-r 3xl:border-b-0 w-full border-b border-black bg-right bg-no-repeat 2xl:bg-size-[50%_auto]"
             style={{ backgroundImage: "url('/index_bt02-2.png')" }}
           >
-            <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-[200px] flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
+            <div className="bg-card 3xl:pb-10 3xl:py-5 flex h-full min-h-50 flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
               <p className="title-c1">PROPRIETARY GCS SOFTWARE</p>
               <p className="title-f">
                 Intuitive design for fast <br /> deployment in the field
@@ -65,7 +65,7 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-home-index-03 3xl:w-1/2 w-full bg-size-[60%_auto] bg-position-[right_-50%_top_70%] bg-no-repeat">
-            <div className="bg-card 4xl:pb-10 3xl:py-5 flex h-full min-h-[200px] flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
+            <div className="bg-card 4xl:pb-10 3xl:py-5 flex h-full min-h-50 flex-col justify-between p-5 py-2.5 text-white/80 hover:bg-black/30 hover:text-black">
               <p className="title-c1">
                 RECENT EVENTS <br />
                 HOT NEWS
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="bg-card 5xl:gap-0 order-2 flex w-full flex-col justify-between gap-10 p-5 text-white/80 2xl:order-0 2xl:w-106.5 2xl:max-w-1/3">
           <p className="title-f">
             Geosat has been a drone service company for more than 10 years, with the knowledge of actual operation, we design drones with exellent stability and high resolution camera for all kinds of
-            missions. missions.{' '}
+            missions.
           </p>
           <div className="5xl:gap-5 flex flex-col gap-3">
             <div>

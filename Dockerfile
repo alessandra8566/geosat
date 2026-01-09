@@ -18,9 +18,16 @@ FROM harbor.wistron.com/base_image/node:20-alpine AS runner
 # FROM node:20-alpine AS runner
 WORKDIR /app
 
+# Step 4: add user for k8s security context
+RUN addgroup -g 3000 -S nodejs \
+    && mkdir -p .next/cache \
+    && chown -R 1000:3000 .next
+
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+
+USER 1000
 
 EXPOSE 3000
 ENV PORT=3000

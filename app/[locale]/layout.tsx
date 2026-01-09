@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={`${robotoFontSemiCondensed.variable} ${robotoFont.variable} bg-background text-foreground`}>
         <NextIntlClientProvider>
           <Providers>
-            <div className="mx-auto max-w-[1440px]">
+            <div className="mx-auto max-w-360">
               <Navbar />
               {children}
               <Footer />

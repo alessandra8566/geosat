@@ -17,7 +17,7 @@ const messages = {
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = ((await requestLocale) ?? 'en' ) as typeof routing.locales[number]
+  let locale = ((await requestLocale) ?? 'en') as (typeof routing.locales)[number]
   if (!locale || !routing.locales.includes(locale)) locale = routing.defaultLocale
   return {
     locale,
